@@ -2,9 +2,10 @@ NAME = phonebook
 
 CC = c++
 
-CFLAGS = -Wextra -Wall -Werror -std=c++98
+HEADER = phonebook.hpp
+CFLAGS = -Wextra -Wall -Werror -std=c++98 -I$(HEADER)
 
-SRC = megaphone.cpp
+SRC = phonebook.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
