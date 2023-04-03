@@ -1,5 +1,6 @@
 #include <iostream>
-using namespace std;
+using std::cout;
+using std::endl;
 
 int	main(int ac, char **av)
 {
@@ -16,7 +17,7 @@ int	main(int ac, char **av)
 			k = 0;
 			while (av[i][k])
 			{
-				cout << char(toupper(av[i][k]));
+				cout << (char)(toupper(av[i][k]));
 				k++;
 			}
 			i++;
