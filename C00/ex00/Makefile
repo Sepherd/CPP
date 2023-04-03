@@ -15,7 +15,7 @@ OBJ = $(SRC:.cpp=.o)
 # WHT = \033[1;37m
 # EOC = \033[1;0m
 
-all = $(NAME)
+all: $(NAME)
 
 $(NAME): $(OBJ)
 		@echo "\033[1;34mCompiling EX00...\033[1;0m"
