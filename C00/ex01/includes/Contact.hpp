@@ -5,6 +5,12 @@
 
 class Contact {
 	
+	std::string	first_name;
+	std::string	last_name;
+	std::string	nickname;
+	std::string	phone_number;
+	std::string	secret;
+
 	public:
 
 	void	save_contact_info()
@@ -50,15 +56,6 @@ class Contact {
 		std::cout << ten_chars(last_name) + "|";
 		std::cout << ten_chars(nickname) + "|\n";
 	}
-
-	private: 
-
-	std::string	first_name;
-	std::string	last_name;
-	std::string	nickname;
-	std::string	phone_number;
-	std::string	secret;
-
 };
 
 #endif

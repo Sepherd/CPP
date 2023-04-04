@@ -67,18 +67,12 @@ int	main(int ac, char **av)
 				pb.i++;
 		}
 		else if (cmd == "SEARCH")
-		{
 			print_search(&pb);
-		}
 		else if (cmd == "EXIT")
-		{
 			break ;
-		}
 		else
-		{
 			cout << "Invalid command.\n";
-		}
 	}
-	cout << "Closing..." << endl;
+	cout << "Bye bye." << endl;
 	return (0);
 }
