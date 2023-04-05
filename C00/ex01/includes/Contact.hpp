@@ -5,36 +5,61 @@
 
 class Contact {
 	
-	std::string	first_name;
-	std::string	last_name;
-	std::string	nickname;
-	std::string	phone_number;
-	std::string	secret;
+	std::string	First_name;
+	std::string	Last_name;
+	std::string	Nickname;
+	std::string	Phone_number;
+	std::string	Secret;
 
 	public:
 
-	void	save_contact_info()
-	{
-		std::cout << "First name: ";
-		std::cin >> first_name;
-		std::cout << "Last name: ";
-		std::cin >> last_name;
-		std::cout << "Nickname: ";
-		std::cin >> nickname;
-		std::cout << "Phone number: ";
-		std::cin >> phone_number;
-		std::cout << "Dark secret: ";
-		std::cin >> secret;
-		std::cout << "\n";
+	void	setFirstName(std::string first_name) {
+		First_name = first_name;
+	}
+
+	std::string	getFirstName() {
+		return First_name;
+	}
+
+	void	setLastName(std::string last_name) {
+		Last_name = last_name;
+	}
+
+	std::string	getLastName() {
+		return Last_name;
+	}
+
+	void	setNickname(std::string nickname) {
+		Nickname = nickname;
+	}
+
+	std::string	getNickname() {
+		return Nickname;
+	}
+
+	void	setPhoneNumber(std::string phone_number) {
+		Phone_number = phone_number;
+	}
+
+	std::string	getPhoneNumber() {
+		return Phone_number;
+	}
+
+	void	setSecret(std::string secret) {
+		Secret = secret;
+	}
+
+	std::string	getSecret() {
+		return Secret;
 	}
 
 	void	print_contact()
 	{
-		std::cout << "First name: " << first_name + "\n";
-		std::cout << "Last name: " << last_name + "\n";
-		std::cout << "Nickname: "<< nickname + "\n";
-		std::cout << "Phone number: " << phone_number + "\n";
-		std::cout << "Dark secret: " << secret + "\n\n";
+		std::cout << "First name: " << First_name + "\n";
+		std::cout << "Last name: " << Last_name + "\n";
+		std::cout << "Nickname: "<< Nickname + "\n";
+		std::cout << "Phone number: " << Phone_number + "\n";
+		std::cout << "Dark secret: " << Secret + "\n\n";
 	}
 
 	std::string	ten_chars(std::string str)
@@ -52,9 +77,9 @@ class Contact {
 
 	void	list_contacts()
 	{
-		std::cout << ten_chars(first_name) + "|";
-		std::cout << ten_chars(last_name) + "|";
-		std::cout << ten_chars(nickname) + "|\n";
+		std::cout << ten_chars(First_name) + "|";
+		std::cout << ten_chars(Last_name) + "|";
+		std::cout << ten_chars(Nickname) + "|\n";
 	}
 };
 

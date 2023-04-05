@@ -16,6 +16,27 @@ string	get_cmd(string cmd)
 	return (cmd);
 }
 
+void	save_contact_info(PhoneBook *pb)
+{
+		string str;
+		cout << "First name: ";
+		cin >> str;
+		pb->contact[pb->i].setFirstName(str);
+		cout << "Last name: ";
+		cin >> str;
+		pb->contact[pb->i].setLastName(str);
+		cout << "Nickname: ";
+		cin >> str;
+		pb->contact[pb->i].setNickname(str);
+		cout << "Phone number: ";
+		cin >> str;
+		pb->contact[pb->i].setPhoneNumber(str);
+		cout << "Dark secret: ";
+		cin >> str;
+		pb->contact[pb->i].setSecret(str);
+		cout << "\n";
+}
+
 void	print_search(PhoneBook *pb)
 {
 	int	index;
@@ -60,7 +81,8 @@ int	main(int ac, char **av)
 		if (cmd == "ADD")
 		{
 			cout << "- New contact -\n\n";
-			pb.contact[pb.i].save_contact_info();
+			save_contact_info(&pb);
+			cout << pb.contact[0].getFirstName();
 			if (pb.i == 7)
 				pb.i = 0;
 			else
