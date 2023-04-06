@@ -1,6 +1,7 @@
 #include "includes/PhoneBook.hpp"
 using std::cout;
 using std::cin;
+using std::getline;
 using std::endl;
 using std::string;
 
@@ -20,42 +21,42 @@ void	save_contact_info(PhoneBook *pb)
 {
 		string str;
 		cout << "First name: ";
-		cin >> str;
+		cin.ignore();
+		getline(cin, str);
 		pb->contact[pb->i].setFirstName(str);
 		cout << "Last name: ";
-		cin >> str;
+		getline(cin, str);
 		pb->contact[pb->i].setLastName(str);
 		cout << "Nickname: ";
-		cin >> str;
+		getline(cin, str);
 		pb->contact[pb->i].setNickname(str);
 		cout << "Phone number: ";
-		cin >> str;
+		getline(cin, str);
 		pb->contact[pb->i].setPhoneNumber(str);
 		cout << "Dark secret: ";
-		cin >> str;
+		getline(cin, str);
 		pb->contact[pb->i].setSecret(str);
 		cout << "\n";
 }
 
 void	print_search(PhoneBook *pb)
 {
-	int	index;
-	if (pb->i > 0)
+	int	index = 0;
+	if (pb->nb > 0)
 	{
 		while(1)
 		{
 			cout << "|     INDEX|FIRST NAME| LAST NAME|  NICKNAME|\n";
-			for (int j = 0; j < pb->i; j++)
+			for (int j = 0; j <= pb->nb; j++)
 			{
-				int	k = 1 + j;
 				cout << "|         ";
-				cout << k;
+				cout << j + 1;
 				cout << "|";
 				pb->contact[j].list_contacts();
 			}
 			cout << "Type the index of the desired contact: ";
 			cin >> index;
-			if (index > pb->i)
+			if (index < 1 || (index > pb->nb))
 				cout << "Index out of range.\n\n";
 			else
 			{
@@ -71,7 +72,7 @@ void	print_search(PhoneBook *pb)
 int	main(int ac, char **av)
 {
 	PhoneBook pb;
-	pb.i = 0;
+	pb.nb = 0, pb.i = 0;
 	
 	cout << "| RUBRIKA |\n\n";
 	while (1)
@@ -82,11 +83,10 @@ int	main(int ac, char **av)
 		{
 			cout << "- New contact -\n\n";
 			save_contact_info(&pb);
-			cout << pb.contact[0].getFirstName();
-			if (pb.i == 7)
-				pb.i = 0;
-			else
-				pb.i++;
+			pb.nb++;
+			pb.i++;
+			if (pb.nb > 7) pb.nb = 7;
+			if (pb.i > 7) pb.i = 0;
 		}
 		else if (cmd == "SEARCH")
 			print_search(&pb);

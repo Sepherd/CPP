@@ -8,7 +8,7 @@ class PhoneBook {
     public:
     
     Contact contact[8];
-    int i;
+    int nb, i;
 };
 
 #endif
