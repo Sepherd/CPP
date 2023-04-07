@@ -42,21 +42,21 @@ void	save_contact_info(PhoneBook *pb)
 void	print_search(PhoneBook *pb)
 {
 	int	index = 0;
-	if (pb->nb > 0)
+	if (pb->nb > 1)
 	{
 		while(1)
 		{
 			cout << "|     INDEX|FIRST NAME| LAST NAME|  NICKNAME|\n";
-			for (int j = 0; j <= pb->nb; j++)
+			for (int j = 1; j < pb->nb; j++)
 			{
 				cout << "|         ";
-				cout << j + 1;
+				cout << j;
 				cout << "|";
-				pb->contact[j].list_contacts();
+				pb->contact[j - 1].list_contacts();
 			}
 			cout << "Type the index of the desired contact: ";
-			cin >> index;
-			if (index < 1 || (index > pb->nb))
+			cin >> index; // SE NON SI INSERISCE UN NUMERO VA IN LOOP
+			if (index < 1 || (index > pb->nb - 1))
 				cout << "Index out of range.\n\n";
 			else
 			{
@@ -72,7 +72,7 @@ void	print_search(PhoneBook *pb)
 int	main(int ac, char **av)
 {
 	PhoneBook pb;
-	pb.nb = 0, pb.i = 0;
+	pb.nb = 1, pb.i = 0;
 	
 	cout << "| RUBRIKA |\n\n";
 	while (1)
@@ -85,7 +85,7 @@ int	main(int ac, char **av)
 			save_contact_info(&pb);
 			pb.nb++;
 			pb.i++;
-			if (pb.nb > 7) pb.nb = 7;
+			if (pb.nb > 8) pb.nb = 9;
 			if (pb.i > 7) pb.i = 0;
 		}
 		else if (cmd == "SEARCH")
