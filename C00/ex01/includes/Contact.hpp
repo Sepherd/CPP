@@ -53,15 +53,6 @@ class Contact {
 		return Secret;
 	}
 
-	void	print_contact()
-	{
-		std::cout << "First name: " << First_name + "\n";
-		std::cout << "Last name: " << Last_name + "\n";
-		std::cout << "Nickname: "<< Nickname + "\n";
-		std::cout << "Phone number: " << Phone_number + "\n";
-		std::cout << "Dark secret: " << Secret + "\n\n";
-	}
-
 	std::string	ten_chars(std::string str)
 	{
 		if (str.length() > 10)
