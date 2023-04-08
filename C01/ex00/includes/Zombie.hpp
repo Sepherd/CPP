@@ -14,20 +14,13 @@ class Zombie
 
     public:
 
-    void announce()
-    {
-        cout << Name << ": BraiiiiiiinnnzzzZ..." << endl;
-    }
+    void announce();
 
-    Zombie (string name)
-    {
-        Name = name;
-    }
-
-    ~Zombie ()
-    {
-        cout << Name << " was destroyed!" << endl;
-    }
+    Zombie (string name);
+    ~Zombie ();
 };
+
+Zombie  *newZombie(string name);
+void    randomChump(string name);
 
 #endif

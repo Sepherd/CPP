@@ -5,7 +5,7 @@ CC = c++
 HEADER = includes
 CFLAGS = -Wextra -Wall -Werror -std=c++98 -I$(HEADER)
 
-SRC = main.cpp
+SRC = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
