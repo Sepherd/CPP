@@ -2,75 +2,60 @@
 #define CONTACT_HPP
 
 #include <iostream>
+using std::cout;
+using std::cin;
+using std::getline;
+using std::endl;
+using std::string;
 
 class Contact {
 	
-	std::string	First_name;
-	std::string	Last_name;
-	std::string	Nickname;
-	std::string	Phone_number;
-	std::string	Secret;
+	string	First_name;
+	string	Last_name;
+	string	Nickname;
+	string	Phone_number;
+	string	Secret;
 
 	public:
 
-	void	setFirstName(std::string first_name) {
+	void	setFirstName(string first_name) {
 		First_name = first_name;
 	}
 
-	std::string	getFirstName() {
+	string	getFirstName() {
 		return First_name;
 	}
 
-	void	setLastName(std::string last_name) {
+	void	setLastName(string last_name) {
 		Last_name = last_name;
 	}
 
-	std::string	getLastName() {
+	string	getLastName() {
 		return Last_name;
 	}
 
-	void	setNickname(std::string nickname) {
+	void	setNickname(string nickname) {
 		Nickname = nickname;
 	}
 
-	std::string	getNickname() {
+	string	getNickname() {
 		return Nickname;
 	}
 
-	void	setPhoneNumber(std::string phone_number) {
+	void	setPhoneNumber(string phone_number) {
 		Phone_number = phone_number;
 	}
 
-	std::string	getPhoneNumber() {
+	string	getPhoneNumber() {
 		return Phone_number;
 	}
 
-	void	setSecret(std::string secret) {
+	void	setSecret(string secret) {
 		Secret = secret;
 	}
 
-	std::string	getSecret() {
+	string	getSecret() {
 		return Secret;
-	}
-
-	std::string	ten_chars(std::string str)
-	{
-		if (str.length() > 10)
-			return (str.substr(0, 9) + ".");
-		else
-		{
-			int	k = 10 - str.length();
-			for (int i = 0; i < k; i++)
-				std::cout << " ";
-			return (str);
-		}
-	}
-
-	void	list_contacts()
-	{
-		std::cout << ten_chars(First_name) + "|";
-		std::cout << ten_chars(Last_name) + "|";
-		std::cout << ten_chars(Nickname) + "|\n";
 	}
 };
 
