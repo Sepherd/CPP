@@ -20,7 +20,7 @@ void	save_contact_info(PhoneBook *pb)
 	pb->contact[pb->i].setPhoneNumber(str);
 	str = get_input(str, "Dark secret: ");
 	pb->contact[pb->i].setSecret(str);
-	cout << "\nContact saved!\n\n";
+	cout << "\n\033[1;32mContact saved!\033[1;0m\n" << endl;
 	pb->nb++;
 	pb->i++;
 	if (pb->nb > 8) pb->nb = 9;
@@ -29,7 +29,7 @@ void	save_contact_info(PhoneBook *pb)
 
 void	print_contact(PhoneBook *pb, int i)
 {
-	cout << "First name: " << pb->contact[i].getFirstName() + "\n";
+	cout << "\nFirst name: " << pb->contact[i].getFirstName() + "\n";
 	cout << "Last name: " << pb->contact[i].getLastName() + "\n";
 	cout << "Nickname: "<< pb->contact[i].getNickname() + "\n";
 	cout << "Phone number: " << pb->contact[i].getPhoneNumber() + "\n";
@@ -51,18 +51,18 @@ void	print_search(PhoneBook *pb)
 				cout << "|";
 				list_contacts(pb, j -1);
 			}
-			cout << "Type the index of the desired contact: ";
+			cout << "\nType the index of the desired contact: ";
 			cin >> index;
 			while (cin.fail())
 			{
-				cout << "Invalid digit. Type numbers only: ";
+				cout << "\033[1;31mInvalid digit. Type numbers only:\033[1;0m ";
 				cin.clear();
 				cin.ignore();
 				cin >> index;
 			}
 			cin.ignore();
 			if (index < 1 || (index > pb->nb - 1))
-				cout << "Index out of range.\n\n";
+				cout << "\033[1;31mIndex out of range.\033[1;0m\n" << endl;
 			else
 			{
 				print_contact(pb, index - 1);
@@ -71,5 +71,5 @@ void	print_search(PhoneBook *pb)
 		}
 	}
 	else
-		cout << "No entries!\n\n";
+		cout << "\033[1;31m\nNo entries!\033[1;0m\n" << endl;
 }

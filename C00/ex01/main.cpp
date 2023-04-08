@@ -5,7 +5,7 @@ int	main(int ac, char **av)
 	PhoneBook pb;
 	pb.nb = 1, pb.i = 0;
 	
-	cout << "| RUBRIKA |\n\n";
+	cout << "\033[1;34m\n| RUBRIKA |\033[1;0m\n" << endl;
 	while (1)
 	{
 		string cmd;
@@ -20,7 +20,7 @@ int	main(int ac, char **av)
 		else if (cmd == "EXIT")
 			break ;
 		else
-			cout << "Invalid command.\n";
+			cout << "\033[1;31mInvalid command.\n\033[1;0m" << endl;
 	}
 	cout << "Bye bye." << endl;
 	return (0);

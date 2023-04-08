@@ -2,7 +2,7 @@
 
 string	get_cmd(string cmd)
 {
-	cout << "Type a command:\n\n";
+	cout << "Commands available:\n\n";
 	cout << "- ADD - to save a new contact,\n";
 	cout << "- SEARCH - to display a specific contact,\n";
 	cout << "- EXIT - quit the program.\n\n";
@@ -21,7 +21,7 @@ string	get_input(string str, string field)
 		if (!str.empty())
 			return (str);
 		else
-			cout << "The field cannot be empty.\n";
+			cout << "\033[1;31mThe field cannot be empty.\033[1;0m\n";
 	}
 }
 
