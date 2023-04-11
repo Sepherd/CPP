@@ -1,4 +1,4 @@
-NAME = brain
+NAME = replace
 
 CC = c++
 
@@ -18,7 +18,7 @@ OBJ = $(SRC:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-		@echo "\033[1;34mCompiling EX02...\033[1;0m"
+		@echo "\033[1;34mCompiling EX04...\033[1;0m"
 		@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 		@echo "\033[1;32mEX01 build completed.\033[1;0m"
 
