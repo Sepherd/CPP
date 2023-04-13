@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   phonebook_utils.cpp                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/13 15:30:59 by arecce            #+#    #+#             */
+/*   Updated: 2023/04/13 15:31:54 by arecce           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/PhoneBook.hpp"
 
 void	list_contacts(PhoneBook *pb, int index)
@@ -33,7 +45,8 @@ void	print_contact(PhoneBook *pb, int i)
 	cout << "Last name: " << pb->contact[i].getLastName() + "\n";
 	cout << "Nickname: "<< pb->contact[i].getNickname() + "\n";
 	cout << "Phone number: " << pb->contact[i].getPhoneNumber() + "\n";
-	cout << "Dark secret: " << pb->contact[i].getSecret() + "\n\n";
+	cout << "Dark secret: " << pb->contact[i].getSecret() + "\n";
+	cout << endl;
 }
 
 void	print_search(PhoneBook *pb)
