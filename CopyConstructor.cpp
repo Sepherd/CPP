@@ -26,11 +26,11 @@ public:
 		Author = original.Author;
 		RatesCounter = original.RatesCounter;
 		Rates = new float[RatesCounter];
-		for (int i = 0; i RatesCounter; i++) {
+		for (int i = 0; i < RatesCounter; i++) {
 			Rates[i] = original.Rates[i];
 		}
 	}
-}
+};
 
 int main()
 {
@@ -40,4 +40,4 @@ int main()
 	Book book3(book1); //si può scrivere anche Book book3 = book1;
 
 	std::cin.get();
-}
+};
