@@ -6,7 +6,7 @@
 /*   By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:14:53 by arecce            #+#    #+#             */
-/*   Updated: 2023/04/26 18:05:29 by sepherd          ###   ########.fr       */
+/*   Updated: 2023/05/03 16:37:54 by sepherd          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,7 @@ class Fixed
 	int		toFloat();
 	int		toInt();
 };
+
+std::ostream &operator<<(std::ostream &ostream, const Fixed& myClass);
 
 #endif
