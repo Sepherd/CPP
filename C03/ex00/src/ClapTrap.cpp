@@ -89,7 +89,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 			std::cout << "Total HP: " << Hp << std::endl;
 		}
 		else
-			std::cout << "ClapTrap " + Name + " can't be repaired because it has no more Mp." << std::endl;
+			std::cout << "ClapTrap " + Name + " can't be repaired because it has no more MP." << std::endl;
 	}
 	else
 		std::cout << "ClapTrap " + Name + " can't be repaired because it has no more HP." << std::endl;
