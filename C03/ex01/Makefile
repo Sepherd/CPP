@@ -6,7 +6,7 @@
 #    By: arecce <arecce@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/13 16:15:00 by arecce            #+#    #+#              #
-#    Updated: 2023/05/04 17:35:00 by arecce           ###   ########.fr        #
+#    Updated: 2023/05/05 14:53:56 by arecce           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CC = c++
 HEADER = includes
 CFLAGS = -Wextra -Wall -Werror -std=c++98 -I$(HEADER)
 
-SRC = main.cpp src/ClapTrap.cpp
+SRC = main.cpp src/ClapTrap.cpp src/ScavTrap.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
