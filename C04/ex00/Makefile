@@ -6,7 +6,7 @@
 #    By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/13 16:15:00 by arecce            #+#    #+#              #
-#    Updated: 2023/05/08 18:36:06 by sepherd          ###   ########.fr        #
+#    Updated: 2023/05/08 19:08:28 by sepherd          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ CC = c++
 HEADER = includes
 CFLAGS = -Wextra -Wall -Werror -std=c++98 -I$(HEADER)
 
-SRC = main.cpp src/Animal.cpp src/Dog.cpp src/Cat.cpp
+SRC = main.cpp src/Animal.cpp src/Dog.cpp src/Cat.cpp src/WrongAnimal.cpp \
+		src/WrongCat.cpp
  
 OBJ = $(SRC:.cpp=.o)
 
