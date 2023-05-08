@@ -5,8 +5,8 @@ FragTrap::FragTrap(): ClapTrap()
 {
 	Name = "Bombolo";
 	Hp = 100;
-	Mp = 50;
-	Power = 20;
+	Mp = 100;
+	Power = 30;
 	std::cout << "FragTrap " + Name + " ready to destroy!" << std::endl;
 }
 
@@ -14,8 +14,8 @@ FragTrap::FragTrap(std::string name): ClapTrap(name)
 {
 	Name = name;
 	Hp = 100;
-	Mp = 50;
-	Power = 20;
+	Mp = 100;
+	Power = 30;
 	std::cout << "FragTrap " + Name + " ready to destroy!" << std::endl;
 }
 

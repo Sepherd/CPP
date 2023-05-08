@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:14:53 by arecce            #+#    #+#             */
-/*   Updated: 2023/05/05 16:36:31 by arecce           ###   ########.fr       */
+/*   Updated: 2023/05/08 17:05:27 by sepherd          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DIAMONDTRAP_HPP
 #define DIAMONDTRAP_HPP
 
-#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 #include <string>
 
-class DiamondTrap:public ClapTrap, public ScavTrap
+class DiamondTrap: public FragTrap, public ScavTrap
 {
 	private:
 
@@ -32,7 +32,8 @@ class DiamondTrap:public ClapTrap, public ScavTrap
 
 		DiamondTrap	&operator=(const DiamondTrap &assign);
 		
-		void	whoAmI();		
+		void	attack(const std::string &target);
+		void	whoAmI();
 };
 
 #endif

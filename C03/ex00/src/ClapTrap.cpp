@@ -7,7 +7,7 @@ ClapTrap::ClapTrap()
 	Hp = 10;
 	Mp = 10;
 	Power = 0;
-	std::cout << Name + " ready to destroy!" << std::endl;
+	std::cout << "ClapTrap " + Name + " ready to destroy!" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name)
@@ -16,12 +16,12 @@ ClapTrap::ClapTrap(std::string name)
 	Hp = 10;
 	Mp = 10;
 	Power = 0;
-	std::cout << Name + " ready to destroy!" << std::endl;
+	std::cout << "ClapTrap " + Name + " ready to destroy!" << std::endl;
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << Name + " was destroyed!" << std::endl;
+	std::cout << "ClapTrap " + Name + " was destroyed!" << std::endl;
 
 }
 
@@ -31,7 +31,7 @@ ClapTrap::ClapTrap(const ClapTrap &original)
 	Hp = original.Hp;
 	Mp = original.Mp;
 	Power = original.Power;
-	std::cout << Name + " copy ready to destroy!" << std::endl;
+	std::cout << "ClapTrap " + Name + " copy ready to destroy!" << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &assign)
@@ -40,7 +40,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &assign)
 	this->Hp = assign.Hp;
 	this->Mp = assign.Mp;
 	this->Power = assign.Power;
-	std::cout << this->Name + " operator called." << std::endl;
+	std::cout << "ClapTrap " + this->Name + " operator called." << std::endl;
 	return (*this);
 }
 

@@ -4,18 +4,18 @@
 ClapTrap::ClapTrap()
 {
 	Name = "Sputafuoco";
-	Hp = 100;
-	Mp = 100;
-	Power = 30;
+	Hp = 10;
+	Mp = 10;
+	Power = 0;
 	std::cout << "ClapTrap " + Name + " ready to destroy!" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name)
 {
 	Name = name;
-	Hp = 100;
-	Mp = 100;
-	Power = 30;
+	Hp = 10;
+	Mp = 10;
+	Power = 0;
 	std::cout << "ClapTrap " + Name + " ready to destroy!" << std::endl;
 }
 

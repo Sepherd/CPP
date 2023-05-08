@@ -52,21 +52,21 @@ void	ScavTrap::guardGate()
 		std::cout << "ScavTrap " + Name + " can't enter in keeper gate mode because it has no more HP." << std::endl;
 }
 
-// void	ScavTrap::attack(const std::string &target)
-// {
-// 	if (Hp > 0)
-// 	{
-// 		if (Mp > 0)
-// 		{
-// 			Mp--;
-// 			std::cout << "ScavTrap " + Name + " attacks " + target + ", causing " << Power << " points of damage!" << std::endl;
-// 		}
-// 		else
-// 			std::cout << "ScavTrap " + Name + " can't attacks because it has no more MP." << std::endl;
-// 	}
-// 	else
-// 		std::cout << "ScavTrap " + Name + " can't attacks because it has no more HP." << std::endl;
-// }
+void	ScavTrap::attack(const std::string &target)
+{
+	if (Hp > 0)
+	{
+		if (Mp > 0)
+		{
+			Mp--;
+			std::cout << "ScavTrap " + Name + " attacks " + target + ", causing " << Power << " points of damage!" << std::endl;
+		}
+		else
+			std::cout << "ScavTrap " + Name + " can't attacks because it has no more MP." << std::endl;
+	}
+	else
+		std::cout << "ScavTrap " + Name + " can't attacks because it has no more HP." << std::endl;
+}
 
 // void	ScavTrap::takeDamage(unsigned int amount)
 // {
