@@ -4,12 +4,12 @@
 WrongAnimal::WrongAnimal()
 {
 	Type = "WrongAnimal";
-	std::cout << "I can be any " + Type + "." << std::endl;
+	std::cout << "I can be any " + Type + " constructor." << std::endl;
 }
 
 WrongAnimal::~WrongAnimal()
 {
-	std::cout << Type + " was destroyed." << std::endl;
+	std::cout << "I am a " + Type + " destructor." << std::endl;
 
 }
 

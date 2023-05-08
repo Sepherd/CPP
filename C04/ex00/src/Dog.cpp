@@ -4,12 +4,12 @@
 Dog::Dog()
 {
 	Type = "Dog";
-	std::cout << "I am a " + Type + "." << std::endl;
+	std::cout << "I am a " + Type + " constructor." << std::endl;
 }
 
 Dog::~Dog()
 {
-	std::cout << Type + " was destroyed." << std::endl;
+	std::cout << "I am a " + Type + " destructor." << std::endl;
 
 }
 
