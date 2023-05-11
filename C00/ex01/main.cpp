@@ -17,14 +17,14 @@ int	main()
 	PhoneBook pb;
 	pb.nb = 1, pb.i = 0;
 	
-	cout << "\033[1;34m\n| RUBRIKA |\033[1;0m\n" << endl;
+	std::cout << "\033[1;34m\n| RUBRIKA |\033[1;0m\n" << std::endl;
 	while (1)
 	{
-		string cmd;
+		std::string cmd;
 		cmd = get_cmd(cmd);
 		if (cmd == "ADD")
 		{
-			cout << "- New contact -\n\n";
+			std::cout << "- New contact -\n\n";
 			save_contact_info(&pb);
 		}
 		else if (cmd == "SEARCH")
@@ -32,8 +32,8 @@ int	main()
 		else if (cmd == "EXIT")
 			break ;
 		else
-			cout << "\033[1;31mInvalid command.\n\033[1;0m" << endl;
+			std::cout << "\033[1;31mInvalid command.\n\033[1;0m" << std::endl;
 	}
-	cout << "Bye bye." << endl;
+	std::cout << "Bye bye." << std::endl;
 	return (0);
 }
