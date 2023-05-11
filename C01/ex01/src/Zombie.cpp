@@ -5,24 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/13 16:15:24 by arecce            #+#    #+#             */
-/*   Updated: 2023/04/13 16:15:25 by arecce           ###   ########.fr       */
+/*   Created: 2023/04/13 16:17:10 by arecce            #+#    #+#             */
+/*   Updated: 2023/05/11 18:24:51 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/Zombie.hpp"
+#include "../includes/Zombie.hpp"
 
-Zombie::Zombie(string name)
+Zombie::Zombie()
 {
-	Name = name;
 }
 
 Zombie::~Zombie()
 {
-	cout << Name << " was destroyed!" << endl;
+	cout << Name + " was destroyed!" << endl;
 }
 
-void	Zombie::announce()
+void	Zombie::setName(string name)
 {
-	cout << Name << ": BraiiiiiiinnnzzzZ..." << endl;
+	Name = name;
+}
+
+string	Zombie::getName()
+{
+	return Name;
+}
+
+void	Zombie::announce(int n)
+{
+	cout << Name << " " << n + 1 << endl;
 }

@@ -6,11 +6,11 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:17:15 by arecce            #+#    #+#             */
-/*   Updated: 2023/04/13 16:17:16 by arecce           ###   ########.fr       */
+/*   Updated: 2023/05/11 18:22:21 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/Zombie.hpp"
+#include "../includes/Zombie.hpp"
 
 Zombie	*zombieHorde(int n, string name)
 {

@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:14:01 by arecce            #+#    #+#             */
-/*   Updated: 2023/04/13 16:14:02 by arecce           ###   ########.fr       */
+/*   Updated: 2023/05/11 18:21:08 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,14 @@ class Zombie
 {
     private:
 
-    string Name;
+        string Name;
 
     public:
 
-    void announce();
+        void announce();
 
-    Zombie (string name);
-    ~Zombie ();
+        Zombie (string name);
+        ~Zombie ();
 };
-
-Zombie  *newZombie(string name);
-void    randomChump(string name);
 
 #endif

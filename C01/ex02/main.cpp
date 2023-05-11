@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:18:25 by arecce            #+#    #+#             */
-/*   Updated: 2023/04/13 16:20:12 by arecce           ###   ########.fr       */
+/*   Updated: 2023/05/11 18:37:30 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main()
 	cout << "Indirizzo tenuto dal puntatore alla stringa: " << stringPTR << endl;
 	cout << "Indirizzo tenuto dalla reference alla stringa: " << &stringREF << endl;
 
-	cout << "Valore stringa: " << brain << endl;
+	cout << "Valore stringa: " + brain << endl;
 	cout << "Valore tenuto dal puntatore alla stringa: " << *stringPTR << endl;
 	cout << "Valore tenuto dalla reference alla stringa: " << stringREF << endl;
 	

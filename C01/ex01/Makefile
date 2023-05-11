@@ -6,7 +6,7 @@
 #    By: arecce <arecce@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/13 16:17:05 by arecce            #+#    #+#              #
-#    Updated: 2023/04/13 16:17:06 by arecce           ###   ########.fr        #
+#    Updated: 2023/05/11 18:22:30 by arecce           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CC = c++
 HEADER = includes
 CFLAGS = -Wextra -Wall -Werror -std=c++98 -I$(HEADER)
 
-SRC = main.cpp Zombie.cpp zombieHorde.cpp
+SRC = main.cpp src/Zombie.cpp src/zombieHorde.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
