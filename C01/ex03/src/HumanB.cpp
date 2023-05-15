@@ -6,7 +6,7 @@
 /*   By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:21:29 by arecce            #+#    #+#             */
-/*   Updated: 2023/05/15 14:54:02 by sepherd          ###   ########.fr       */
+/*   Updated: 2023/05/15 21:22:32 by sepherd          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	HumanB::setWeapon(Weapon &weapon)
 void	HumanB::attack()
 {
 	cout << _name << " attacks with his ";
-	if (!_weapon)
+	if (_weapon == nullptr)
 		cout << "roundhouse kicks" << endl;
 	else
 		cout << _weapon->getType() << endl;
