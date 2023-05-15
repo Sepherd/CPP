@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:20:59 by arecce            #+#    #+#             */
-/*   Updated: 2023/04/13 16:21:00 by arecce           ###   ########.fr       */
+/*   Updated: 2023/05/15 14:54:05 by sepherd          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,16 @@ class HumanB
 {
 	private:
 
-	std::string	_name;
-	Weapon		*_weapon; //pointer
+		std::string	_name;
+		Weapon		*_weapon; //pointer
 
 	public:
 
-	void    setWeapon(Weapon &weapon); //reference
-	void    attack();
+		void    setWeapon(Weapon &weapon); //reference
+		void    attack();
 
-	HumanB(std::string name);
-	~HumanB();
+		HumanB(std::string name);
+		~HumanB();
 };
 
 #endif
