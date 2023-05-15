@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:22:53 by arecce            #+#    #+#             */
-/*   Updated: 2023/04/13 16:22:54 by arecce           ###   ########.fr       */
+/*   Updated: 2023/05/15 16:19:32 by sepherd          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,27 @@
 using std::string;
 using std::cout;
 using std::endl;
+
+int	check_words(std::ifstream &read, string str)
+{
+	string	file;
+	while (std::getline(read, file))
+	{
+		if (file.empty())
+		{
+			cout << "File is empty!" << endl;
+			return (0);
+		}
+	}
+	if (file.find(str) != string::npos)
+	{
+		read.close();
+		return (1);
+	}
+	cout << "Word not found!" << endl;
+	read.close();
+	return (0);
+}
 
 string	substitute(string str, string s1, string s2)
 {
@@ -37,20 +58,28 @@ int	main(int ac, char **av)
 		string	myFile;
 		string	filename = av[1]; string s1 = av[2]; string s2 = av[3];
 		std::ifstream	readFile(filename);
-		std::ofstream	writeFile(filename + ".replace");
-		std::getline(readFile, myFile);
-		writeFile << substitute(myFile, s1, s2);
-		while (std::getline(readFile, myFile))
+		if (readFile.is_open())
 		{
-			if (!myFile.empty())
+			if (check_words(readFile, s1))
 			{
-				myFile.insert(0, "\n");
+				std::ifstream	readFile(filename);
+				std::ofstream	writeFile(filename + ".replace");
+				std::getline(readFile, myFile);
 				writeFile << substitute(myFile, s1, s2);
+				while (std::getline(readFile, myFile))
+				{
+					if (!myFile.empty())
+					{
+						myFile.insert(0, "\n");
+						writeFile << substitute(myFile, s1, s2);
+					}
+					
+				}
+				//readFile.close();
 			}
-			
 		}
-		
+		else
+			cout << "File not found!" << endl;
 	}
-	//readFile.close();	
 	return (0);
 }
