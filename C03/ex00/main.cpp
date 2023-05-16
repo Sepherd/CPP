@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:14:53 by arecce            #+#    #+#             */
-/*   Updated: 2023/05/04 17:33:21 by arecce           ###   ########.fr       */
+/*   Updated: 2023/05/16 17:28:48 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 int	main()
 {
 	ClapTrap trap1("Trap One");
+	
 	trap1.attack("Peter");
 	trap1.takeDamage(5);
 	for (int i = 0; i < 9; i++)
