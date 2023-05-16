@@ -4,58 +4,52 @@
 
 Fixed::Fixed() : FixNum(0)
 {
-    std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const int value)
 {
-    std::cout << "Int constructor called" << std::endl;
-    this->FixNum = value << Fixed::Bits;
+    FixNum = value << Fixed::Bits;
 }
 
 Fixed::Fixed(const float value)
 {
-    std::cout << "Float constructor called" << std::endl;
-    this->FixNum = roundf(value * (1 << Fixed::Bits));
+    FixNum = roundf(value * (1 << Fixed::Bits));
 }
 
 Fixed::~Fixed()
 {
-    std::cout << "Destructor called" << std::endl;
 }
 
-Fixed::Fixed(const Fixed &original) : FixNum(original.FixNum)
+Fixed::Fixed(const Fixed &original)
 {
-    std::cout << "Copy constructor called" << std::endl;
+	*this = original;
 }
 
-Fixed & Fixed::operator=(const Fixed &assign)
+Fixed &Fixed::operator=(const Fixed &assign)
 {
-    this->FixNum = assign.FixNum;
-    std::cout << "Copy assignment operator called" << std::endl;
+    if (this != &assign)
+		this->FixNum = assign.FixNum;
     return (*this);
 }
 
 int Fixed::getRawBits()
 {
-    std::cout << "getRawBits member function called" << std::endl;
-    return (this->FixNum);
+    return (FixNum);
 }
 
 void    Fixed::setRawBits(int const raw)
 {
-    std::cout << "setRawBits member function called" << std::endl;
-    this->FixNum = raw;
+    FixNum = raw;
 }
 
 int Fixed::toInt() const
 {
-    return (this->FixNum >> Fixed::Bits);
+    return (FixNum >> Fixed::Bits);
 }
 
 float   Fixed::toFloat() const
 {
-    return ((float)this->FixNum / (1 << Fixed::Bits));
+    return ((float)FixNum / (1 << Fixed::Bits));
 }
 
 std::ostream &operator <<(std::ostream &os, const Fixed &obj)
@@ -152,24 +146,28 @@ Fixed Fixed::operator--(int)
 
 Fixed& Fixed::min(Fixed& fr, Fixed& sr)
 {
-	if (fr < sr) return fr;
+	if (fr < sr)
+		return fr;
 	return sr;
 }
 
 Fixed& Fixed::max(Fixed& fr, Fixed& sr)
 {
-	if (fr > sr) return fr;
+	if (fr > sr)
+		return fr;
 	return sr;
 }
 
 const Fixed& Fixed::min(const Fixed& fr, const Fixed& sr)
 {
-	if (fr < sr) return fr;
+	if (fr < sr)
+		return fr;
 	return sr;
 }
 
 const Fixed& Fixed::max(const Fixed& fr, const Fixed& sr)
 {
-	if (fr > sr) return fr;
+	if (fr > sr)
+		return fr;
 	return sr;
 }

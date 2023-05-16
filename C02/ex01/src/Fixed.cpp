@@ -10,13 +10,13 @@ Fixed::Fixed() : FixNum(0)
 Fixed::Fixed(const int value)
 {
     std::cout << "Int constructor called" << std::endl;
-    this->FixNum = value << Fixed::Bits;
+    FixNum = value << Fixed::Bits;
 }
 
 Fixed::Fixed(const float value)
 {
     std::cout << "Float constructor called" << std::endl;
-    this->FixNum = roundf(value * (1 << Fixed::Bits));
+    FixNum = roundf(value * (1 << Fixed::Bits));
 }
 
 Fixed::~Fixed()
@@ -24,9 +24,10 @@ Fixed::~Fixed()
     std::cout << "Destructor called" << std::endl;
 }
 
-Fixed::Fixed(const Fixed &original) : FixNum(original.FixNum)
+Fixed::Fixed(const Fixed &original)
 {
     std::cout << "Copy constructor called" << std::endl;
+    *this = original;
 }
 
 Fixed & Fixed::operator=(const Fixed &assign)
