@@ -6,16 +6,12 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:21:29 by arecce            #+#    #+#             */
-/*   Updated: 2023/05/16 16:38:55 by arecce           ###   ########.fr       */
+/*   Updated: 2023/05/16 19:20:43 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/HumanB.hpp"
 #include <iostream>
-
-;
-
-
 
 HumanB::HumanB(std::string name) : _name(name), _weapon(NULL)
 {

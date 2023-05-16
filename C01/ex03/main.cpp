@@ -6,13 +6,12 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:21:40 by arecce            #+#    #+#             */
-/*   Updated: 2023/05/16 15:54:02 by arecce           ###   ########.fr       */
+/*   Updated: 2023/05/16 19:20:53 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/HumanA.hpp"
 #include "includes/HumanB.hpp"
-
 
 int	main()
 {
