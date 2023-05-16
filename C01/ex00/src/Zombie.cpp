@@ -6,22 +6,22 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:15:24 by arecce            #+#    #+#             */
-/*   Updated: 2023/05/11 18:20:44 by arecce           ###   ########.fr       */
+/*   Updated: 2023/05/16 16:38:55 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Zombie.hpp"
 
-Zombie::Zombie(string name) : Name(name)
+Zombie::Zombie(std::string name) : Name(name)
 {
 }
 
 Zombie::~Zombie()
 {
-	cout << Name + " was destroyed!" << endl;
+	std::cout << Name + " was destroyed!" << std::endl;
 }
 
 void	Zombie::announce()
 {
-	cout << Name << ": BraiiiiiiinnnzzzZ..." << endl;
+	std::cout << Name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }

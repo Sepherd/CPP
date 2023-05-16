@@ -32,7 +32,7 @@ Fixed &Fixed::operator=(const Fixed &assign)
     return (*this);
 }
 
-int Fixed::getRawBits()
+int Fixed::getRawBits() const
 {
     return (FixNum);
 }

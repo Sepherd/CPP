@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:16:37 by arecce            #+#    #+#             */
-/*   Updated: 2023/05/11 18:23:55 by arecce           ###   ########.fr       */
+/*   Updated: 2023/05/16 16:37:15 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 #define ZOMBIE_HPP
 
 #include <iostream>
-using std::string;
-using std::cout;
-using std::endl;
+;
+
+
 
 class Zombie
 {
 	private:
 
-		string Name;
+		std::string Name;
 
 	public:
 
 		void	announce(int n);
-		void	setName(string name);
-		string	getName();
+		void	setName(std::string name);
+		std::string	getName();
 	
 		Zombie ();
 		~Zombie ();

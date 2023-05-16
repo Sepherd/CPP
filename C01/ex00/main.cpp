@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+        */
+/*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:14:53 by arecce            #+#    #+#             */
-/*   Updated: 2023/05/12 12:16:06 by sepherd          ###   ########.fr       */
+/*   Updated: 2023/05/16 16:37:15 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/Zombie.hpp"
 
-Zombie  *newZombie(string name);
-void    randomChump(string name);
+Zombie  *newZombie(std::string name);
+void    randomChump(std::string name);
 
 int	main()
 {

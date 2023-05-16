@@ -6,28 +6,28 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:18:25 by arecce            #+#    #+#             */
-/*   Updated: 2023/05/11 18:37:30 by arecce           ###   ########.fr       */
+/*   Updated: 2023/05/16 16:38:55 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-using std::string;
-using std::cout;
-using std::endl;
+;
+
+
 
 int	main()
 {
-	string	brain = "HI THIS IS BRAIN";
-	string	*stringPTR = &brain;
-	string	&stringREF = brain;
+	std::string	brain = "HI THIS IS BRAIN";
+	std::string	*std::stringPTR = &brain;
+	std::string	&std::stringREF = brain;
 
-	cout << "Indirizzo stringa: " << &brain << endl;
-	cout << "Indirizzo tenuto dal puntatore alla stringa: " << stringPTR << endl;
-	cout << "Indirizzo tenuto dalla reference alla stringa: " << &stringREF << endl;
+	std::cout << "Indirizzo std::stringa: " << &brain << std::endl;
+	std::cout << "Indirizzo tenuto dal puntatore alla std::stringa: " << std::stringPTR << std::endl;
+	std::cout << "Indirizzo tenuto dalla reference alla std::stringa: " << &std::stringREF << std::endl;
 
-	cout << "Valore stringa: " + brain << endl;
-	cout << "Valore tenuto dal puntatore alla stringa: " << *stringPTR << endl;
-	cout << "Valore tenuto dalla reference alla stringa: " << stringREF << endl;
+	std::cout << "Valore std::stringa: " + brain << std::endl;
+	std::cout << "Valore tenuto dal puntatore alla std::stringa: " << *std::stringPTR << std::endl;
+	std::cout << "Valore tenuto dalla reference alla std::stringa: " << std::stringREF << std::endl;
 	
 	return (0);
 }

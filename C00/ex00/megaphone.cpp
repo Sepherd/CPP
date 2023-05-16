@@ -11,8 +11,8 @@
 /* ************************************************************************** */
 
 #include <iostream>
-using std::cout;
-using std::endl;
+
+
 
 int	main(int ac, char **av)
 {
@@ -20,7 +20,7 @@ int	main(int ac, char **av)
 	int k;
 	if (ac == 1)
 	{
-		cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
 	}
 	else
 	{
@@ -29,12 +29,12 @@ int	main(int ac, char **av)
 			k = 0;
 			while (av[i][k])
 			{
-				cout << (char)(toupper(av[i][k]));
+				std::cout << (char)(toupper(av[i][k]));
 				k++;
 			}
 			i++;
 		}
 	}
-	cout << endl;
+	std::cout << std::endl;
 	return (0);
 }
