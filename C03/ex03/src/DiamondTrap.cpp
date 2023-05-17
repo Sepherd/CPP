@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/17 19:21:46 by arecce            #+#    #+#             */
+/*   Updated: 2023/05/17 19:21:47 by arecce           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/DiamondTrap.hpp"
 #include <iostream>
 
 DiamondTrap::DiamondTrap(): ClapTrap()
 {
 	Name = "Diamond Problem";
-	ClapTrap::Name = Name + "_clap_name";
+	ClapTrap::Name = ClapTrap::Name + "_clap_name";
 	Hp = FragTrap::Hp;
 	Mp = ScavTrap::Mp;
 	Power = FragTrap::Power;
@@ -50,8 +62,15 @@ void	DiamondTrap::whoAmI()
 {
 	if (Hp > 0)
 	{
-		std::cout << "DiamondTrap name is: " + Name + "!" << std::endl;
-		std::cout << "DiamondTrap ClapTrap name is: " + ClapTrap::Name + "!" << std::endl;
+		if (Mp > 0)
+		{
+			Mp--;
+			std::cout << "DiamondTrap name is: " + Name + "!" << std::endl;
+			std::cout << "DiamondTrap ClapTrap name is: " + ClapTrap::Name + "!" << std::endl;
+		}
+		else
+			std::cout << "DiamondTrap " + Name + " can't tell its name because it has no more MP." << std::endl;
+
 	}
 	else
 		std::cout << "DiamondTrap " + Name + " can't tell its name because it has no more HP." << std::endl;

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/17 19:23:03 by arecce            #+#    #+#             */
+/*   Updated: 2023/05/17 19:23:04 by arecce           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/FragTrap.hpp"
 #include <iostream>
 
@@ -47,7 +59,15 @@ FragTrap &FragTrap::operator=(const FragTrap &assign)
 void	FragTrap::highFivesGuys()
 {
 	if (Hp > 0)
-		std::cout << "FragTrap " + Name + " wants to high five with you!" << std::endl;
+	{
+		if (Mp > 0)
+		{
+			Mp--;
+			std::cout << "FragTrap " + Name + " wants to high five with you!" << std::endl;
+		}
+		else
+			std::cout << "FragTrap " + Name + " can't high five because it has no more MP." << std::endl;
+	}
 	else
 		std::cout << "FragTrap " + Name + " can't high five because it has no more HP." << std::endl;
 }

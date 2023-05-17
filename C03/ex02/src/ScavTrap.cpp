@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/17 19:23:13 by arecce            #+#    #+#             */
+/*   Updated: 2023/05/17 19:23:14 by arecce           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/ScavTrap.hpp"
 #include <iostream>
 
@@ -47,9 +59,18 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &assign)
 void	ScavTrap::guardGate()
 {
 	if (Hp > 0)
-		std::cout << "ScavTrap " + Name + " is in keeper gate mode." << std::endl;
+	{
+		if (Mp > 0)
+		{
+			Mp--;
+			std::cout << "ScavTrap " + Name + " is in keeper gate mode." << std::endl;
+
+		}
+		else
+			std::cout << "ScavTrap " + Name + " can't enter in keeper gate mode because it has no more MP." << std::endl;
+	}
 	else
-		std::cout << "ScavTrap " + Name + " can't enter in keeper gate mode because it has no more HP." << std::endl;
+		std::cout << "ScavTrap " + Name + " can't enter in keeper gate because it has no more HP." << std::endl;
 }
 
 // void	ScavTrap::attack(const std::string &target)

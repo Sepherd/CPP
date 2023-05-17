@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:14:53 by arecce            #+#    #+#             */
-/*   Updated: 2023/05/16 17:42:35 by arecce           ###   ########.fr       */
+/*   Updated: 2023/05/17 18:25:00 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int	main()
 	scav2.attack("Jack");
 	scav1.takeDamage(30);
 	scav2.takeDamage(30);
-	scav1.guardGate();
-	scav2.guardGate();
+	for (int i = 0; i < 50; i++)
+		scav2.guardGate();
 	scav1.takeDamage(75);
 	scav1.attack("Jack");
 	return (0);

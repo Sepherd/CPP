@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:14:53 by arecce            #+#    #+#             */
-/*   Updated: 2023/05/16 17:28:48 by arecce           ###   ########.fr       */
+/*   Updated: 2023/05/17 18:09:58 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ int	main()
 	trap1.beRepaired(5);
 	trap1.attack("Peter");
 	trap1.takeDamage(500);
+	trap1.attack("Peter");
 	return (0);
 }

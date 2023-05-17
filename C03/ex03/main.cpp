@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+        */
+/*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:14:53 by arecce            #+#    #+#             */
-/*   Updated: 2023/05/08 17:09:29 by sepherd          ###   ########.fr       */
+/*   Updated: 2023/05/17 19:19:11 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,15 @@
 
 int	main()
 {
-	ClapTrap trap1("Will");
-	// ScavTrap scav1("Scavatrice Malefica");
-	// FragTrap frag1("Bomb");
 	DiamondTrap	diamond1;
 	DiamondTrap	diamond2("Prezioso");
-	// trap1.attack("Jack");
-	// scav1.attack("Jack");
-	// frag1.attack("Jack");
 	diamond1.attack("Jack");
 	diamond2.attack("Jack");
-	diamond2.whoAmI();
+	diamond1.whoAmI();
+	for (int i = 0; i < 50; i++)
+		diamond2.whoAmI();
+	diamond2.takeDamage(10);
+	diamond2.takeDamage(95);
+	diamond2.attack("Jack");
 	return (0);
 }
