@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 19:21:35 by arecce            #+#    #+#             */
-/*   Updated: 2023/05/17 19:21:36 by arecce           ###   ########.fr       */
+/*   Updated: 2023/05/17 20:26:03 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 		std::cout << "ClapTrap " + Name + " has received " << amount << " points of damage!\n";
 		std::cout << "Residual HP: " << Hp << std::endl;
 	}
-	else if (Hp > 0 && Hp < amount)
+	else if (Hp > 0 && Hp <= amount)
 	{
 		Hp = 0;
 		std::cout << "ClapTrap " + Name + " has received " << amount << " points of damage and died!\n";

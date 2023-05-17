@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 19:21:46 by arecce            #+#    #+#             */
-/*   Updated: 2023/05/17 19:21:47 by arecce           ###   ########.fr       */
+/*   Updated: 2023/05/17 20:26:20 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,39 +80,3 @@ void	DiamondTrap::attack(const std::string &target)
 {
 	ScavTrap::attack(target);
 }
-
-// void	DiamondTrap::takeDamage(unsigned int amount)
-// {
-// 	if (Hp <= 0)
-// 	{
-// 		std::cout << "Ehi! DiamondTrap " + Name + " is already dead! Be mercy :'(" << std::endl; 
-// 		return ;
-// 	}
-// 	Hp -= amount;
-// 	if (Hp > 0)
-// 	{
-// 		std::cout << "DiamondTrap " + Name + " has received " << amount << " points of damage!\n";
-// 		std::cout << "Residual HP: " << Hp << std::endl;
-// 	}
-// 	else
-// 		std::cout << "DiamondTrap " + Name + " has received " << amount << " points of damage and died!\n";
-// }
-
-// void	DiamondTrap::beRepaired(unsigned int amount)
-// {
-// 	if (Hp > 0)
-// 	{
-// 		if (Mp > 0)
-// 		{
-// 			Hp += amount;
-// 			Mp--;
-// 			std::cout << "DiamondTrap " + Name + " was repaired and gained " << amount << " HP!\n";
-// 			std::cout << "Total HP: " << Hp << std::endl;
-// 		}
-// 		else
-// 			std::cout << "DiamondTrap " + Name + " can't be repaired because it has no more MP." << std::endl;
-// 	}
-// 	else
-// 		std::cout << "DiamondTrap " + Name + " can't be repaired because it has no more HP." << std::endl;
-
-// }

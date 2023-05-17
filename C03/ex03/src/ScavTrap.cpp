@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 19:21:52 by arecce            #+#    #+#             */
-/*   Updated: 2023/05/17 19:21:53 by arecce           ###   ########.fr       */
+/*   Updated: 2023/05/17 20:26:48 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,39 +79,3 @@ void	ScavTrap::attack(const std::string &target)
 	else
 		std::cout << "ScavTrap " + Name + " can't attacks because it has no more HP." << std::endl;
 }
-
-// void	ScavTrap::takeDamage(unsigned int amount)
-// {
-// 	if (Hp <= 0)
-// 	{
-// 		std::cout << "Ehi! ScavTrap " + Name + " is already dead! Be mercy :'(" << std::endl; 
-// 		return ;
-// 	}
-// 	Hp -= amount;
-// 	if (Hp > 0)
-// 	{
-// 		std::cout << "ScavTrap " + Name + " has received " << amount << " points of damage!\n";
-// 		std::cout << "Residual HP: " << Hp << std::endl;
-// 	}
-// 	else
-// 		std::cout << "ScavTrap " + Name + " has received " << amount << " points of damage and died!\n";
-// }
-
-// void	ScavTrap::beRepaired(unsigned int amount)
-// {
-// 	if (Hp > 0)
-// 	{
-// 		if (Mp > 0)
-// 		{
-// 			Hp += amount;
-// 			Mp--;
-// 			std::cout << "ScavTrap " + Name + " was repaired and gained " << amount << " HP!\n";
-// 			std::cout << "Total HP: " << Hp << std::endl;
-// 		}
-// 		else
-// 			std::cout << "ScavTrap " + Name + " can't be repaired because it has no more MP." << std::endl;
-// 	}
-// 	else
-// 		std::cout << "ScavTrap " + Name + " can't be repaired because it has no more HP." << std::endl;
-
-// }

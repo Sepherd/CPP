@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 19:21:49 by arecce            #+#    #+#             */
-/*   Updated: 2023/05/17 19:21:50 by arecce           ###   ########.fr       */
+/*   Updated: 2023/05/17 20:26:37 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,55 +63,3 @@ void	FragTrap::highFivesGuys()
 	else
 		std::cout << "FragTrap " + Name + " can't high five because it has no more HP." << std::endl;
 }
-
-// void	FragTrap::attack(const std::string &target)
-// {
-// 	if (Hp > 0)
-// 	{
-// 		if (Mp > 0)
-// 		{
-// 			Mp--;
-// 			std::cout << "FragTrap " + Name + " attacks " + target + ", causing " << Power << " points of damage!" << std::endl;
-// 		}
-// 		else
-// 			std::cout << "FragTrap " + Name + " can't attacks because it has no more MP." << std::endl;
-// 	}
-// 	else
-// 		std::cout << "FragTrap " + Name + " can't attacks because it has no more HP." << std::endl;
-// }
-
-// void	FragTrap::takeDamage(unsigned int amount)
-// {
-// 	if (Hp <= 0)
-// 	{
-// 		std::cout << "Ehi! FragTrap " + Name + " is already dead! Be mercy :'(" << std::endl; 
-// 		return ;
-// 	}
-// 	Hp -= amount;
-// 	if (Hp > 0)
-// 	{
-// 		std::cout << "FragTrap " + Name + " has received " << amount << " points of damage!\n";
-// 		std::cout << "Residual HP: " << Hp << std::endl;
-// 	}
-// 	else
-// 		std::cout << "FragTrap " + Name + " has received " << amount << " points of damage and died!\n";
-// }
-
-// void	FragTrap::beRepaired(unsigned int amount)
-// {
-// 	if (Hp > 0)
-// 	{
-// 		if (Mp > 0)
-// 		{
-// 			Hp += amount;
-// 			Mp--;
-// 			std::cout << "FragTrap " + Name + " was repaired and gained " << amount << " HP!\n";
-// 			std::cout << "Total HP: " << Hp << std::endl;
-// 		}
-// 		else
-// 			std::cout << "FragTrap " + Name + " can't be repaired because it has no more MP." << std::endl;
-// 	}
-// 	else
-// 		std::cout << "FragTrap " + Name + " can't be repaired because it has no more HP." << std::endl;
-
-// }

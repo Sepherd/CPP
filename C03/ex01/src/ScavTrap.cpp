@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:31:37 by arecce            #+#    #+#             */
-/*   Updated: 2023/05/17 18:17:20 by arecce           ###   ########.fr       */
+/*   Updated: 2023/05/17 20:24:37 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,55 +72,3 @@ void	ScavTrap::guardGate()
 	else
 		std::cout << "ScavTrap " + Name + " can't enter in keeper gate because it has no more HP." << std::endl;
 }
-
-// void	ScavTrap::attack(const std::string &target)
-// {
-// 	if (Hp > 0)
-// 	{
-// 		if (Mp > 0)
-// 		{
-// 			Mp--;
-// 			std::cout << "ScavTrap " + Name + " attacks " + target + ", causing " << Power << " points of damage!" << std::endl;
-// 		}
-// 		else
-// 			std::cout << "ScavTrap " + Name + " can't attacks because it has no more MP." << std::endl;
-// 	}
-// 	else
-// 		std::cout << "ScavTrap " + Name + " can't attacks because it has no more HP." << std::endl;
-// }
-
-// void	ScavTrap::takeDamage(unsigned int amount)
-// {
-// 	if (Hp <= 0)
-// 	{
-// 		std::cout << "Ehi! ScavTrap " + Name + " is already dead! Be mercy :'(" << std::endl; 
-// 		return ;
-// 	}
-// 	Hp -= amount;
-// 	if (Hp > 0)
-// 	{
-// 		std::cout << "ScavTrap " + Name + " has received " << amount << " points of damage!\n";
-// 		std::cout << "Residual HP: " << Hp << std::endl;
-// 	}
-// 	else
-// 		std::cout << "ScavTrap " + Name + " has received " << amount << " points of damage and died!\n";
-// }
-
-// void	ScavTrap::beRepaired(unsigned int amount)
-// {
-// 	if (Hp > 0)
-// 	{
-// 		if (Mp > 0)
-// 		{
-// 			Hp += amount;
-// 			Mp--;
-// 			std::cout << "ScavTrap " + Name + " was repaired and gained " << amount << " HP!\n";
-// 			std::cout << "Total HP: " << Hp << std::endl;
-// 		}
-// 		else
-// 			std::cout << "ScavTrap " + Name + " can't be repaired because it has no more MP." << std::endl;
-// 	}
-// 	else
-// 		std::cout << "ScavTrap " + Name + " can't be repaired because it has no more HP." << std::endl;
-
-// }
