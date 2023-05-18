@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:31:37 by arecce            #+#    #+#             */
-/*   Updated: 2023/05/17 20:24:37 by arecce           ###   ########.fr       */
+/*   Updated: 2023/05/18 19:15:20 by sepherd          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ ScavTrap::ScavTrap(): ClapTrap()
 	Hp = 100;
 	Mp = 50;
 	Power = 20;
-	std::cout << "ScavTrap " + Name + " ready to destroy!" << std::endl;
+	std::cout << "ScavTrap " + Name + " constructor" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name): ClapTrap(name)
@@ -28,12 +28,12 @@ ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 	Hp = 100;
 	Mp = 50;
 	Power = 20;
-	std::cout << "ScavTrap " + Name + " ready to destroy!" << std::endl;
+	std::cout << "ScavTrap " + Name + " constructor" << std::endl;
 }
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap " + Name + " was destroyed!" << std::endl;
+	std::cout << "ScavTrap " + Name + " destructor" << std::endl;
 
 }
 
@@ -43,7 +43,7 @@ ScavTrap::ScavTrap(const ScavTrap &original)
 	Hp = original.Hp;
 	Mp = original.Mp;
 	Power = original.Power;
-	std::cout << "ScavTrap " + Name + " copy ready to destroy!" << std::endl;
+	std::cout << "ScavTrap " + Name + " copy constructor" << std::endl;
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &assign)

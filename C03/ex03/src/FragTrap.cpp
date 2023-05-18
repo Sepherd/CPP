@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 19:21:49 by arecce            #+#    #+#             */
-/*   Updated: 2023/05/17 20:26:37 by arecce           ###   ########.fr       */
+/*   Updated: 2023/05/18 19:15:20 by sepherd          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ FragTrap::FragTrap(): ClapTrap()
 	Hp = 100;
 	Mp = 100;
 	Power = 30;
-	std::cout << "FragTrap " + Name + " ready to destroy!" << std::endl;
+	std::cout << "FragTrap " + Name + " constructor" << std::endl;
 }
 
 FragTrap::FragTrap(std::string name): ClapTrap(name)
@@ -28,12 +28,12 @@ FragTrap::FragTrap(std::string name): ClapTrap(name)
 	Hp = 100;
 	Mp = 100;
 	Power = 30;
-	std::cout << "FragTrap " + Name + " ready to destroy!" << std::endl;
+	std::cout << "FragTrap " + Name + " constructor" << std::endl;
 }
 
 FragTrap::~FragTrap()
 {
-	std::cout << "FragTrap " + Name + " was destroyed!" << std::endl;
+	std::cout << "FragTrap " + Name + " destructor" << std::endl;
 
 }
 
@@ -43,7 +43,7 @@ FragTrap::FragTrap(const FragTrap &original)
 	Hp = original.Hp;
 	Mp = original.Mp;
 	Power = original.Power;
-	std::cout << "FragTrap " + Name + " copy ready to destroy!" << std::endl;
+	std::cout << "FragTrap " + Name + " copy constructor" << std::endl;
 }
 
 FragTrap &FragTrap::operator=(const FragTrap &assign)

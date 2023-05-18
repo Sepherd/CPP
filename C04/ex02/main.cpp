@@ -6,7 +6,7 @@
 /*   By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:14:53 by arecce            #+#    #+#             */
-/*   Updated: 2023/05/18 15:17:32 by sepherd          ###   ########.fr       */
+/*   Updated: 2023/05/18 18:54:39 by sepherd          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 int	main()
 {
-	//Errore di compilazione, Animal è astratta e non può essere inizializzato direttamente
+	//Errore di compilazione, Animal è astratta e non può essere inizializzata direttamente,
 	//ma può fungere solo da base per le classi derivate
 	//const Animal animal();
 	

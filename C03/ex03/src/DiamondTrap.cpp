@@ -3,39 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 19:21:46 by arecce            #+#    #+#             */
-/*   Updated: 2023/05/17 20:26:20 by arecce           ###   ########.fr       */
+/*   Updated: 2023/05/18 19:25:33 by sepherd          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/DiamondTrap.hpp"
 #include <iostream>
 
-DiamondTrap::DiamondTrap(): ClapTrap()
+DiamondTrap::DiamondTrap()
 {
 	Name = "Diamond Problem";
-	ClapTrap::Name = ClapTrap::Name + "_clap_name";
+	this->ClapTrap::Name = ClapTrap::Name + "_clap_name";
 	Hp = FragTrap::Hp;
 	Mp = ScavTrap::Mp;
 	Power = FragTrap::Power;
-	std::cout << "DiamondTrap " + Name + " ready to destroy!" << std::endl;
+	std::cout << "DiamondTrap " + Name + " constructor" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string name): ClapTrap(name)
+DiamondTrap::DiamondTrap(std::string name)
 {
 	Name = name;
-	ClapTrap::Name = name + "_clap_name";
+	this->ClapTrap::Name = name + "_clap_name";
 	Hp = FragTrap::Hp;
 	Mp = ScavTrap::Mp;
 	Power = FragTrap::Power;
-	std::cout << "DiamondTrap " + Name + " ready to destroy!" << std::endl;
+	std::cout << "DiamondTrap " + Name + " constructor" << std::endl;
 }
 
 DiamondTrap::~DiamondTrap()
 {
-	std::cout << "DiamondTrap " + Name + " was destroyed!" << std::endl;
+	std::cout << "DiamondTrap " + Name + " destructor" << std::endl;
 
 }
 
@@ -45,7 +45,7 @@ DiamondTrap::DiamondTrap(const DiamondTrap &original)
 	Hp = original.Hp;
 	Mp = original.Mp;
 	Power = original.Power;
-	std::cout << "DiamondTrap " + Name + " copy ready to destroy!" << std::endl;
+	std::cout << "DiamondTrap " + Name + " copy constructor" << std::endl;
 }
 
 DiamondTrap &DiamondTrap::operator=(const DiamondTrap &assign)

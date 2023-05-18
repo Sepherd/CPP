@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 19:22:56 by arecce            #+#    #+#             */
-/*   Updated: 2023/05/17 20:25:07 by arecce           ###   ########.fr       */
+/*   Updated: 2023/05/18 19:15:20 by sepherd          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ ClapTrap::ClapTrap()
 	Hp = 10;
 	Mp = 10;
 	Power = 0;
-	std::cout << "ClapTrap " + Name + " ready to destroy!" << std::endl;
+	std::cout << "ClapTrap " + Name + " constructor" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name)
@@ -28,12 +28,12 @@ ClapTrap::ClapTrap(std::string name)
 	Hp = 10;
 	Mp = 10;
 	Power = 0;
-	std::cout << "ClapTrap " + Name + " ready to destroy!" << std::endl;
+	std::cout << "ClapTrap " + Name + " constructor" << std::endl;
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "ClapTrap " + Name + " was destroyed!" << std::endl;
+	std::cout << "ClapTrap " + Name + " destructor" << std::endl;
 
 }
 
@@ -43,7 +43,7 @@ ClapTrap::ClapTrap(const ClapTrap &original)
 	Hp = original.Hp;
 	Mp = original.Mp;
 	Power = original.Power;
-	std::cout << "ClapTrap " + Name + " copy ready to destroy!" << std::endl;
+	std::cout << "ClapTrap " + Name + " copy constructor" << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &assign)

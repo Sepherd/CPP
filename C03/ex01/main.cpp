@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:14:53 by arecce            #+#    #+#             */
-/*   Updated: 2023/05/17 18:25:00 by arecce           ###   ########.fr       */
+/*   Updated: 2023/05/18 19:10:42 by sepherd          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	main()
 	ClapTrap trap1("Will");
 	ScavTrap scav1;
 	ScavTrap scav2("Scavatrice Malefica");
+	
 	trap1.attack("Jack");
 	scav1.attack("Jack");
 	scav2.attack("Jack");
@@ -28,5 +29,7 @@ int	main()
 		scav2.guardGate();
 	scav1.takeDamage(75);
 	scav1.attack("Jack");
+	scav1.guardGate();
+		
 	return (0);
 }
