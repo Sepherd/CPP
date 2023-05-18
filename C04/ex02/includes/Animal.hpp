@@ -6,7 +6,7 @@
 /*   By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:14:53 by arecce            #+#    #+#             */
-/*   Updated: 2023/05/18 15:21:07 by sepherd          ###   ########.fr       */
+/*   Updated: 2023/05/18 16:07:16 by sepherd          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 #define ANIMAL_HPP
 
 #include <string>
+
+/*
+Una classe abstract è utile per creare un'interfaccia base per le classi derivate.
+*/
 
 class Animal
 {
