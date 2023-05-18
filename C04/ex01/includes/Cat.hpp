@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:14:53 by arecce            #+#    #+#             */
-/*   Updated: 2023/05/16 16:38:34 by arecce           ###   ########.fr       */
+/*   Updated: 2023/05/18 13:32:45 by sepherd          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ class Cat: public Animal
 
 		Cat &operator=(const Cat &assign);
 
-		void	makeSound() const override;
+		void		makeSound() const;
+		void		setIdeas(std::string str, int i) const;
+		std::string	getIdea(int n) const;
 };
 
 #endif

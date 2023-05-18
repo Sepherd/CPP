@@ -6,7 +6,7 @@
 /*   By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:14:53 by arecce            #+#    #+#             */
-/*   Updated: 2023/05/18 12:27:57 by sepherd          ###   ########.fr       */
+/*   Updated: 2023/05/18 15:07:34 by sepherd          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class Animal
 		Animal &operator=(const Animal &assign);
 
 		std::string			getType() const;
-		virtual void		makeSound() const;
+		virtual void		makeSound() const = 0;
 };
 
 #endif

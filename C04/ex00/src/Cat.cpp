@@ -4,12 +4,12 @@
 Cat::Cat()
 {
 	Type = "Cat";
-	std::cout << "I am a " + Type + " constructor." << std::endl;
+	std::cout << "I am a Cat constructor." << std::endl;
 }
 
 Cat::~Cat()
 {
-	std::cout << "I am a " + Type + " destructor." << std::endl;
+	std::cout << "I am a Cat destructor." << std::endl;
 
 }
 

@@ -4,12 +4,12 @@
 Animal::Animal()
 {
 	Type = "Animal";
-	std::cout << "I can be any " + Type + " constructor." << std::endl;
+	std::cout << "I can be any Animal constructor." << std::endl;
 }
 
 Animal::~Animal()
 {
-	std::cout << "I am a " + Type + " destructor." << std::endl;
+	std::cout << "I am a Animal destructor." << std::endl;
 
 }
 

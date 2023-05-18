@@ -4,12 +4,12 @@
 WrongCat::WrongCat()
 {
 	Type = "WrongCat";
-	std::cout << "I am a WrongCat constructor." << std::endl;
+	std::cout << "I am a " + Type + " constructor." << std::endl;
 }
 
 WrongCat::~WrongCat()
 {
-	std::cout << "I am a WrongCat destructor." << std::endl;
+	std::cout << "I am a " + Type + " destructor." << std::endl;
 
 }
 

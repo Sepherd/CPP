@@ -24,13 +24,13 @@ class WrongAnimal
 	public:
 
 		WrongAnimal();
-		~WrongAnimal();
+		virtual ~WrongAnimal();
 		WrongAnimal(const WrongAnimal &original);
 
 		WrongAnimal &operator=(const WrongAnimal &assign);
 
 		std::string	getType() const;
-		void		makeSound() const;
+		void		makeSound() const; //no virtual
 };
 
 #endif
