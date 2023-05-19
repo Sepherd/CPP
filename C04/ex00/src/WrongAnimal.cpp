@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/19 18:43:41 by arecce            #+#    #+#             */
+/*   Updated: 2023/05/19 18:46:58 by arecce           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/WrongAnimal.hpp"
 #include <iostream>
 
 WrongAnimal::WrongAnimal()
 {
 	Type = "WrongAnimal";
-	std::cout << "I can be any WrongAnimal constructor." << std::endl;
+	std::cout << "I am a WrongAnimal constructor." << std::endl;
 }
 
 WrongAnimal::~WrongAnimal()

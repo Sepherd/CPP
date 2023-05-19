@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:14:53 by arecce            #+#    #+#             */
-/*   Updated: 2023/05/16 16:42:22 by arecce           ###   ########.fr       */
+/*   Updated: 2023/05/19 17:06:53 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class ClapTrap
 		ClapTrap();
 		ClapTrap(std::string name);
 		~ClapTrap();
+		
 		ClapTrap(const ClapTrap &original);
 
 		ClapTrap	&operator=(const ClapTrap &assign);

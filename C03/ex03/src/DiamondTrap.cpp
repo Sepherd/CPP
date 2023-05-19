@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+        */
+/*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 19:21:46 by arecce            #+#    #+#             */
-/*   Updated: 2023/05/19 13:08:57 by sepherd          ###   ########.fr       */
+/*   Updated: 2023/05/19 17:02:36 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	DiamondTrap::whoAmI()
 		{
 			Mp--;
 			std::cout << "DiamondTrap name is: " + Name + "!" << std::endl;
-			std::cout << "DiamondTrap ClapTrap name is: " + ClapTrap::Name + "!" << std::endl;
+			std::cout << "DiamondTrap ClapTrap name is: " + this->ClapTrap::Name + "!" << std::endl;
 		}
 		else
 			std::cout << "DiamondTrap " + Name + " can't tell its name because it has no more MP." << std::endl;

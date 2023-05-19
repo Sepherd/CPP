@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+        */
+/*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:14:53 by arecce            #+#    #+#             */
-/*   Updated: 2023/05/18 18:54:39 by sepherd          ###   ########.fr       */
+/*   Updated: 2023/05/19 19:17:43 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,8 @@
 
 int	main()
 {
-	//Errore di compilazione, Animal è astratta e non può essere inizializzata direttamente,
-	//ma può fungere solo da base per le classi derivate
-	//const Animal animal();
+	//Errore di compilazione, Animal è astratta e non può essere inizializzata direttamente
+	// const Animal animale;
 	
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();

@@ -1,15 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/19 19:10:53 by arecce            #+#    #+#             */
+/*   Updated: 2023/05/19 19:13:33 by arecce           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/WrongCat.hpp"
 #include <iostream>
 
 WrongCat::WrongCat()
 {
 	Type = "WrongCat";
-	std::cout << "I am a " + Type + " constructor." << std::endl;
+	std::cout << "I am a WrongCat constructor." << std::endl;
 }
 
 WrongCat::~WrongCat()
 {
-	std::cout << "I am a " + Type + " destructor." << std::endl;
+	std::cout << "I am a WrongCat destructor." << std::endl;
 
 }
 
