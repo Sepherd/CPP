@@ -6,24 +6,24 @@
 /*   By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 19:21:46 by arecce            #+#    #+#             */
-/*   Updated: 2023/05/18 19:25:33 by sepherd          ###   ########.fr       */
+/*   Updated: 2023/05/19 13:08:57 by sepherd          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/DiamondTrap.hpp"
 #include <iostream>
 
-DiamondTrap::DiamondTrap()
+DiamondTrap::DiamondTrap(): ScavTrap::ScavTrap(), FragTrap::FragTrap(), ClapTrap::ClapTrap()
 {
 	Name = "Diamond Problem";
-	this->ClapTrap::Name = ClapTrap::Name + "_clap_name";
+	this->ClapTrap::Name += "_clap_name";
 	Hp = FragTrap::Hp;
 	Mp = ScavTrap::Mp;
 	Power = FragTrap::Power;
 	std::cout << "DiamondTrap " + Name + " constructor" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string name)
+DiamondTrap::DiamondTrap(std::string name): ScavTrap::ScavTrap(name), FragTrap::FragTrap(name), ClapTrap::ClapTrap(name)
 {
 	Name = name;
 	this->ClapTrap::Name = name + "_clap_name";
