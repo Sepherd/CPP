@@ -13,35 +13,35 @@
 #include "../includes/Bureaucrat.hpp"
 #include <iostream>
 
-Bureaucrat::Bureaucrat() : _name("Bureaucrat")
+Bureaucrat::Bureaucrat() : _name("Andrea")
 {
-	_grade = 1;
-	// std::cout << "I am an Bureaucrat constructor." << std::endl;
+	_grade = 150;
+	std::cout << getName() << " has been hired." << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name)
 {
 	_grade = grade;
+	std::cout << getName() << " has been hired." << std::endl;
 }
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << this->_name << " has been fired." << std::endl;
-
+	std::cout << getName() << " has been fired." << std::endl;
 }
 
-// Bureaucrat::Bureaucrat(const Bureaucrat &original)
-// {
-// 	Type = original.Type;
-// 	// std::cout << Type +  " copy done." << std::endl;
-// }
+Bureaucrat::Bureaucrat(const Bureaucrat &original) : _name(original._name)
+{
+	_grade = original._grade;
+	std::cout << getName() +  " copy done." << std::endl;
+}
 
-// Bureaucrat &Bureaucrat::operator=(const Bureaucrat &assign)
-// {
-// 	this->_name = assign._name;
-// 	// std::cout << this->Type + " operator called." << std::endl;
-// 	return (*this);
-// }
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
+{
+	std::cout << this->_name + " operator called." << std::endl;
+	this->_grade = other._grade;
+	return (*this);
+}
 
 std::string Bureaucrat::getName() const
 {
