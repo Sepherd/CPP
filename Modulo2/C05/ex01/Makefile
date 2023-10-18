@@ -6,11 +6,11 @@
 #    By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/13 16:15:00 by arecce            #+#    #+#              #
-#    Updated: 2023/10/18 22:40:57 by sepherd          ###   ########.fr        #
+#    Updated: 2023/10/18 22:41:08 by sepherd          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = bureaucrat
+NAME = form
 
 CC = c++
 
@@ -31,7 +31,7 @@ OBJ = $(SRC:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-		@echo "\033[1;34mCompiling EX00...\033[1;0m"
+		@echo "\033[1;34mCompiling EX01...\033[1;0m"
 		@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 		@echo "\033[1;32mEX02 build completed.\033[1;0m"
 
