@@ -6,7 +6,7 @@
 /*   By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:14:53 by arecce            #+#    #+#             */
-/*   Updated: 2023/10/18 20:23:41 by sepherd          ###   ########.fr       */
+/*   Updated: 2023/10/18 22:23:13 by sepherd          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,31 @@ class Bureaucrat
 		Bureaucrat &operator=(const Bureaucrat &other);
 
 		std::string			getName() const;
-		int					getGrade();
+		int					getGrade() const;
+		void				incrementGrade();
+		void				decrementGrade();
+
+		class GradeTooHighException : public std::exception
+		{
+			public:
+			
+				std::string	what()
+				{
+					return ("1 is the highest possible grade.");
+				}
+		};
+
+		class GradeTooLowException : public std::exception
+		{
+			public:
+
+				std::string what()
+				{
+					return ("150 is the lowest possibile grade");
+				}	
+		};
 };
+
+std::ostream &operator <<(std::ostream &os, const Bureaucrat &obj);
 
 #endif
