@@ -33,7 +33,7 @@ Form::Form(std::string const name, const int toSign, const int toExecute) : _nam
 
 Form::~Form()
 {
-	std::cout << getName() << " has been fired." << std::endl;
+	std::cout << getName() << " has been destroyed." << std::endl;
 }
 
 Form::Form(const Form &original) : _name(original._name), _gradeToSign(original._gradeToSign), _gradeToExecute(original._gradeToExecute)
@@ -67,11 +67,14 @@ int	Form::getGradeToExecute() const
 	return (_gradeToExecute);
 }
 
-void	Form::beSigned(Bureaucrat b)
+void	Form::beSigned(const Bureaucrat &b)
 {
 	if (b.getGrade() > _gradeToSign)
 		throw GradeTooLowException(b.getName() + " grade is too low.");
-	_isSigned = true;
+	if (this->_isSigned == false)
+		this->_isSigned = true;
+	else
+		std::cout << this->getName() << " is already signed." << std::endl;
 }
 
 std::ostream &operator <<(std::ostream &os, Form &obj)
