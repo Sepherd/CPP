@@ -6,7 +6,7 @@
 /*   By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:14:53 by arecce            #+#    #+#             */
-/*   Updated: 2023/10/18 22:23:13 by sepherd          ###   ########.fr       */
+/*   Updated: 2023/10/19 11:34:09 by sepherd          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class Bureaucrat
 {
-	protected:
+	private:
 
 		std::string const	_name;
 		int					_grade;

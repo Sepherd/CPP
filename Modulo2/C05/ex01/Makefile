@@ -6,7 +6,7 @@
 #    By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/13 16:15:00 by arecce            #+#    #+#              #
-#    Updated: 2023/10/18 22:41:08 by sepherd          ###   ########.fr        #
+#    Updated: 2023/10/19 12:52:52 by sepherd          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CC = c++
 HEADER = includes
 CFLAGS = -Wextra -Wall -Werror -std=c++98 -I$(HEADER)
 
-SRC = main.cpp src/Bureaucrat.cpp
+SRC = main.cpp src/Bureaucrat.cpp src/Form.cpp
  
 OBJ = $(SRC:.cpp=.o)
 
