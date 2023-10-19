@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+        */
+/*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:14:53 by arecce            #+#    #+#             */
-/*   Updated: 2023/10/19 12:51:52 by sepherd          ###   ########.fr       */
+/*   Updated: 2023/10/19 17:31:29 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ class Form
 		int					getGradeToSign() const;
 		int					getGradeToExecute() const;
 		
-		// void				beSigned(Bureaucrat b);
+		void				beSigned(Bureaucrat b);
 
 		class GradeTooHighException : public std::exception
 		{

@@ -22,9 +22,9 @@ Bureaucrat::Bureaucrat() : _name("Andrea")
 Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name)
 {
 	if (grade < 1)
-		throw GradeTooHighException();
+		throw GradeTooHighException("1 is the highest possible grade.");
 	if (grade > 150)
-		throw GradeTooLowException();
+		throw GradeTooLowException("150 is the lowest possibile grade");
 	_grade = grade;
 	std::cout << getName() << " has been hired." << std::endl;
 }
@@ -60,7 +60,7 @@ int Bureaucrat::getGrade() const
 void	Bureaucrat::incrementGrade()
 {
 	if (_grade == 1)
-		throw GradeTooHighException();
+		throw GradeTooHighException("1 is the highest possible grade.");
 	_grade--;
 	std::cout << getName() << " new grade is " << getGrade() << std::endl;
 }
@@ -68,7 +68,7 @@ void	Bureaucrat::incrementGrade()
 void	Bureaucrat::decrementGrade()
 {
 	if (_grade == 150)
-		throw GradeTooLowException();
+		throw GradeTooLowException("150 is the lowest possibile grade");
 	_grade++;
 	std::cout << getName() << " new grade is " << getGrade() << std::endl;
 }

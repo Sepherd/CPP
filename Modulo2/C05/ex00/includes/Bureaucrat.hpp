@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+        */
+/*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:14:53 by arecce            #+#    #+#             */
-/*   Updated: 2023/10/19 11:34:09 by sepherd          ###   ########.fr       */
+/*   Updated: 2023/10/19 17:29:12 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,22 +37,32 @@ class Bureaucrat
 
 		class GradeTooHighException : public std::exception
 		{
+			private:
+
+				std::string		message;
+
 			public:
 			
+				GradeTooHighException(std::string msg) : message(msg) {}
 				std::string	what()
 				{
-					return ("1 is the highest possible grade.");
+					return (message);
 				}
 		};
 
 		class GradeTooLowException : public std::exception
 		{
-			public:
+			private:
 
-				std::string what()
+				std::string		message;
+
+			public:
+			
+				GradeTooLowException(std::string msg) : message(msg) {}
+				std::string	what()
 				{
-					return ("150 is the lowest possibile grade");
-				}	
+					return (message);
+				}
 		};
 };
 

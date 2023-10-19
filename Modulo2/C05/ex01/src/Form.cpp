@@ -67,6 +67,13 @@ int	Form::getGradeToExecute() const
 	return (_gradeToExecute);
 }
 
+void	Form::beSigned(Bureaucrat b)
+{
+	if (b.getGrade() > _gradeToSign)
+		throw GradeTooLowException(b.getName() + " grade is too low.");
+	_isSigned = true;
+}
+
 std::ostream &operator <<(std::ostream &os, Form &obj)
 {
     os << "Form name: " << obj.getName() << "\nisSigned: " << obj.getIsSigned() << "\ngradeToSign: " << obj.getGradeToSign() << "\ngradeToExecute: " << obj.getGradeToExecute();
