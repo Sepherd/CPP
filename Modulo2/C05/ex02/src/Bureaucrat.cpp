@@ -73,7 +73,7 @@ void	Bureaucrat::decrementGrade()
 	std::cout << getName() << " new grade is " << getGrade() << std::endl;
 }
 
-void	Bureaucrat::signForm(Form &f)
+void	Bureaucrat::signForm(AForm &f)
 {
 	if (this->getGrade() > f.getGradeToSign())
 	{
