@@ -16,6 +16,7 @@
 #include "Bureaucrat.hpp"
 #include <string>
 #include <fstream>
+#include <random>
 
 class Bureaucrat;
 

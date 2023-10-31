@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.cpp                                         :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 19:10:35 by arecce            #+#    #+#             */
-/*   Updated: 2023/05/19 19:12:54 by arecce           ###   ########.fr       */
+/*   Updated: 2023/10/31 21:33:11 by sepherd          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,10 @@ void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const
         file << "   \\====/\n";
         file << "    \\__/" << std::endl;
 
+        if (!file.good())
+            std::cerr << "Writing error" << std::endl;
         file.close();
-        std::cout << executor.getName() << " has execute " << getName() << std::endl;
+        std::cout << "A tree has been planted" << std::endl;
     }
     else
         std::cerr << "Unable to open file" << std::endl;
