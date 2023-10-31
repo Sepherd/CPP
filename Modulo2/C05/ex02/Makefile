@@ -3,21 +3,21 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+         #
+#    By: arecce <arecce@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/13 16:15:00 by arecce            #+#    #+#              #
-#    Updated: 2023/10/19 12:52:52 by sepherd          ###   ########.fr        #
+#    Updated: 2023/10/31 18:32:20 by arecce           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = form
+NAME = 28B
 
 CC = c++
 
 HEADER = includes
 CFLAGS = -Wextra -Wall -Werror -std=c++98 -I$(HEADER)
 
-SRC = main.cpp src/Bureaucrat.cpp src/Form.cpp
+SRC = main.cpp src/Bureaucrat.cpp src/AForm.cpp src/ShrubberyCreationForm.cpp
  
 OBJ = $(SRC:.cpp=.o)
 
@@ -31,7 +31,7 @@ OBJ = $(SRC:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-		@echo "\033[1;34mCompiling EX01...\033[1;0m"
+		@echo "\033[1;34mCompiling EX02...\033[1;0m"
 		@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 		@echo "\033[1;32mEX02 build completed.\033[1;0m"
 

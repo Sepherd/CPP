@@ -15,6 +15,7 @@
 
 #include "Bureaucrat.hpp"
 #include <string>
+#include <fstream>
 
 class Bureaucrat;
 
@@ -36,7 +37,7 @@ class AForm
 		AForm &operator=(const AForm &other);
 
 		std::string			getName() const;
-		bool				getIsSigned();
+		bool				getIsSigned() const;
 		int					getGradeToSign() const;
 		int					getGradeToExecute() const;
 		
@@ -69,6 +70,32 @@ class AForm
 				{
 					return (message);
 				}	
+		};
+
+		class NotSignedException : public std::exception
+		{
+			private:
+				std::string		message;
+			public:
+
+				NotSignedException(std::string msg) : message(msg) {}
+				std::string what()
+				{
+					return (message);
+				}
+		};
+
+		class AlreadySignedException : public std::exception
+		{
+			private:
+				std::string		message;
+			public:
+
+				AlreadySignedException(std::string msg) : message(msg) {}
+				std::string what()
+				{
+					return (message);
+				}
 		};
 };
 

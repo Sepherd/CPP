@@ -13,8 +13,8 @@
 #include "../includes/ShrubberyCreationForm.hpp"
 #include <iostream>
 
-ShrubberyCreationForm::ShrubberyCreationForm() : _target("Tree"), AForm()
-{}
+// ShrubberyCreationForm::ShrubberyCreationForm() : _target("Wood"), AForm()
+// {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : _target(target), AForm("Shrubbery", 145, 137)
 {}
@@ -38,18 +38,34 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
 	if (!getIsSigned())
-		throw 
+		throw NotSignedException(getName() + " is not signed");
+    if (executor.getGrade() > getGradeToExecute())
+        throw GradeTooLowException(executor.getName() + " grade is too low");
+    std::ofstream   file;
+    file.open(_target + "_shrubbery");
+    if (file.is_open())
+    {
+        file << "    _\\/_\n";
+        file << "     /\\\n";
+        file << "     /\\\n";
+        file << "    /  \\\n";
+        file << "    /~~\\o\n";
+        file << "   /o   \\\n";
+        file << "  /~~*~~~\\\n";
+        file << " o/    o \\\n";
+        file << " /~~~~~~~~\\~`\n";
+        file << "/__*_______\\\n";
+        file << "     ||\n";
+        file << "   \\====/\n";
+        file << "    \\__/" << std::endl;
+
+        file.close();
+        std::cout << executor.getName() << " has execute " << getName() << std::endl;
+    }
+    else
+        std::cerr << "Unable to open file" << std::endl;
 }
 
-               ,@@@@@@@,
-       ,,,.   ,@@@@@@/@@,  .oo8888o.
-    ,&%%&%&&%,@@@@@/@@@@@@,8888\88/8o
-   ,%&\%&&%&&%,@@@\@@@/@@@88\88888/88'
-   %&&%&%&/%&&%@@\@@/ /@@@88888\88888'
-   %&&%/ %&%%&&@@\ V /@@' `88\8 `/88'
-   `&%\ ` /%&'    |.|        \ '|8'
-       |o|        | |         | |
-       |.|        | |         | |
-   \\/ ._\//_/__/  ,\_//__\\/.  \_//__/_
+
 
 

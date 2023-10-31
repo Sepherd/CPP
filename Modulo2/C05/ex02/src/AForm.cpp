@@ -52,7 +52,7 @@ std::string AForm::getName() const
 	return (_name);
 }
 
-bool AForm::getIsSigned()
+bool AForm::getIsSigned() const
 {
 	return (_isSigned);
 }
@@ -71,10 +71,9 @@ void	AForm::beSigned(const Bureaucrat &b)
 {
 	if (b.getGrade() > _gradeToSign)
 		throw GradeTooLowException(b.getName() + " grade is too low.");
-	if (this->_isSigned == false)
-		this->_isSigned = true;
-	else
-		std::cout << this->getName() << " is already signed." << std::endl;
+	if (this->_isSigned == true)
+		throw AlreadySignedException(getName() + " is already signed");
+	this->_isSigned = true;
 }
 
 std::ostream &operator <<(std::ostream &os, AForm &obj)
