@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+        */
+/*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 19:10:35 by arecce            #+#    #+#             */
-/*   Updated: 2023/10/31 21:30:31 by sepherd          ###   ########.fr       */
+/*   Updated: 2023/11/02 17:22:56 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,17 @@ void	Bureaucrat::signForm(AForm &f)
 	}
 	else
 		std::cout << f.getName() << " is already signed." << std::endl;
+}
+
+void	Bureaucrat::executeForm(AForm const &form)
+{
+	try {
+		form.execute(*this);
+		std::cout << getName() << " executed " << form.getName() << std::endl;
+	}
+	catch (...){
+		std::cout << getName() << " failed to execute " << form.getName() << std::endl;
+	}
 }
 
 std::ostream &operator <<(std::ostream &os, const Bureaucrat &obj)
