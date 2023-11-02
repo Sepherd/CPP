@@ -3,23 +3,22 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: arecce <arecce@student.42.fr>              +#+  +:+       +#+         #
+#    By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/13 16:15:00 by arecce            #+#    #+#              #
-#    Updated: 2023/11/02 18:19:41 by arecce           ###   ########.fr        #
+#    Updated: 2023/04/23 17:44:28 by sepherd          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = 28B
+NAME = fixed
 
 CC = c++
 
 HEADER = includes
 CFLAGS = -Wextra -Wall -Werror -std=c++98 -I$(HEADER)
 
-SRC = main.cpp src/Bureaucrat.cpp src/AForm.cpp src/ShrubberyCreationForm.cpp \
-	src/PresidentialPardonForm.cpp src/RobotomyRequestForm.cpp
- 
+SRC = main.cpp src/Fixed.cpp
+
 OBJ = $(SRC:.cpp=.o)
 
 # GREEN = \033[1;32m
@@ -32,9 +31,9 @@ OBJ = $(SRC:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-		@echo "\033[1;34mCompiling EX02...\033[1;0m"
+		@echo "\033[1;34mCompiling EX00...\033[1;0m"
 		@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-		@echo "\033[1;32mEX02 build completed.\033[1;0m"
+		@echo "\033[1;32mEX00 build completed.\033[1;0m"
 
 clean:
 		@echo "\033[1;33mCleaning...\033[1;0m"

@@ -6,19 +6,19 @@
 #    By: arecce <arecce@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/13 16:15:00 by arecce            #+#    #+#              #
-#    Updated: 2023/11/02 18:19:41 by arecce           ###   ########.fr        #
+#    Updated: 2023/05/19 19:11:08 by arecce           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = 28B
+NAME = animal
 
 CC = c++
 
 HEADER = includes
 CFLAGS = -Wextra -Wall -Werror -std=c++98 -I$(HEADER)
 
-SRC = main.cpp src/Bureaucrat.cpp src/AForm.cpp src/ShrubberyCreationForm.cpp \
-	src/PresidentialPardonForm.cpp src/RobotomyRequestForm.cpp
+SRC = main.cpp src/Animal.cpp src/Dog.cpp src/Cat.cpp src/WrongAnimal.cpp \
+		src/WrongCat.cpp src/Brain.cpp
  
 OBJ = $(SRC:.cpp=.o)
 

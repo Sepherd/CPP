@@ -5,21 +5,19 @@
 #                                                     +:+ +:+         +:+      #
 #    By: arecce <arecce@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/04/13 16:15:00 by arecce            #+#    #+#              #
-#    Updated: 2023/11/02 18:19:41 by arecce           ###   ########.fr        #
+#    Created: 2023/04/13 16:19:27 by arecce            #+#    #+#              #
+#    Updated: 2023/04/13 16:31:37 by arecce           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = 28B
+NAME = brain
 
 CC = c++
 
-HEADER = includes
-CFLAGS = -Wextra -Wall -Werror -std=c++98 -I$(HEADER)
+CFLAGS = -Wextra -Wall -Werror -std=c++98
 
-SRC = main.cpp src/Bureaucrat.cpp src/AForm.cpp src/ShrubberyCreationForm.cpp \
-	src/PresidentialPardonForm.cpp src/RobotomyRequestForm.cpp
- 
+SRC = main.cpp
+
 OBJ = $(SRC:.cpp=.o)
 
 # GREEN = \033[1;32m
