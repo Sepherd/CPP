@@ -6,11 +6,11 @@
 #    By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/13 16:15:00 by arecce            #+#    #+#              #
-#    Updated: 2023/11/24 17:57:57 by sepherd          ###   ########.fr        #
+#    Updated: 2023/11/24 17:57:43 by sepherd          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = template
+NAME = iter
 
 CC = c++
 
@@ -31,9 +31,9 @@ OBJ = $(SRC:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-		@echo "\033[1;34mCompiling EX0...\033[1;0m"
+		@echo "\033[1;34mCompiling EX01...\033[1;0m"
 		@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-		@echo "\033[1;32mEX0 build completed.\033[1;0m"
+		@echo "\033[1;32mEX01 build completed.\033[1;0m"
 
 clean:
 		@echo "\033[1;33mCleaning...\033[1;0m"

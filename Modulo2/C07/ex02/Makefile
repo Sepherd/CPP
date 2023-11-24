@@ -6,11 +6,11 @@
 #    By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/13 16:15:00 by arecce            #+#    #+#              #
-#    Updated: 2023/11/24 17:57:57 by sepherd          ###   ########.fr        #
+#    Updated: 2023/11/24 22:56:33 by sepherd          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = template
+NAME = array
 
 CC = c++
 
@@ -18,7 +18,6 @@ HEADER = includes
 CFLAGS = -Wextra -Wall -Werror -std=c++98 -I$(HEADER)
 
 SRC = main.cpp
- 
 OBJ = $(SRC:.cpp=.o)
 
 # GREEN = \033[1;32m
@@ -31,9 +30,9 @@ OBJ = $(SRC:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-		@echo "\033[1;34mCompiling EX0...\033[1;0m"
+		@echo "\033[1;34mCompiling EX02...\033[1;0m"
 		@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-		@echo "\033[1;32mEX0 build completed.\033[1;0m"
+		@echo "\033[1;32mEX02 build completed.\033[1;0m"
 
 clean:
 		@echo "\033[1;33mCleaning...\033[1;0m"
