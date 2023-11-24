@@ -6,7 +6,7 @@
 /*   By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 19:10:35 by arecce            #+#    #+#             */
-/*   Updated: 2023/11/24 12:03:57 by sepherd          ###   ########.fr       */
+/*   Updated: 2023/11/24 15:43:04 by sepherd          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,40 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &other)
 	return (*this);
 }
 
+int	symCount(const std::string &value, char sym)
+{
+	int	c = 0;
+	for (std::string::size_type i = 0; i < value.length(); i++)
+		if (value[i] == sym)
+			c++;
+	if (c > 1)
+		return (0);
+	return (1);
+}
+
+int	isDot(const std::string &value)
+{
+	if (!symCount(value, '.') || !symCount(value, '+') || !symCount(value, '-'))
+		return (0);
+	int	i = 0;
+	while (i < value.length())
+	{
+		if (value[i] == '+' || value[i] == '-')
+			i++;
+		while (isdigit(value[i]))
+			i++;
+		if (value[i] == '.')
+			i++;
+		while (isdigit(value[i]))
+			i++;
+		if (value[i] == 'f' && value[i + 1] == '\0')
+			return (1);
+		else if (value[i] != '\0')
+			return (0);
+	}
+	return (1);
+}
+
 int	checkString(const std::string &value)
 {
 	int	i = 0;
@@ -44,36 +78,10 @@ int	checkString(const std::string &value)
     int intValue;
     iss >> intValue;
     if (iss && !(iss >> remaining))
-	{
         return (1);
-    }
-	else
-    {
-    	iss.clear();
-    	iss.seekg(0);
-
-    	float floatValue;
-    	iss >> floatValue;
-    	if (iss && !(iss >> remaining))
-		{
-			std::cout << remaining << std::endl;
-    	    return (1);
-    	}
-		else
-		{
-			iss.clear();
-   			iss.seekg(0);
-
-			double doubleValue;
-    		iss >> doubleValue;
-    		if (iss && !(iss >> remaining))
-			{
-        		return (1);
-    		}
-			else
-				return (0);
-		}
-	}
+	else if (isDot(value))
+		return (1);
+	return (0);
 }
 
 int	isSpecial(const std::string &value)
@@ -183,16 +191,11 @@ void	convertChar(const std::string &value)
 
 void	ScalarConverter::convert(const std::string &value)
 {
-	// if (!checkString(value))
-	// {
-	// 	std::cout << "Invalid argument" << std::endl;
-	// 	return ;
-	// }
 	if (!isSpecial(value))
 	{
 		return ;
 	}
-	if (value.length() > 1 && !isdigit(value[0]))
+	if ((value.length() > 1 && !isdigit(value[0])) || (isdigit(value[0]) && !isDot(value)))
 	{
 		std::cout << "Invalid argument" << std::endl;
 		return ;
