@@ -6,18 +6,18 @@
 #    By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/13 16:15:00 by arecce            #+#    #+#              #
-#    Updated: 2023/11/02 23:24:59 by sepherd          ###   ########.fr        #
+#    Updated: 2023/11/22 17:40:03 by sepherd          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = form
+NAME = convert
 
 CC = c++
 
 HEADER = includes
 CFLAGS = -Wextra -Wall -Werror -std=c++98 -I$(HEADER)
 
-SRC = main.cpp src/Bureaucrat.cpp src/Form.cpp
+SRC = main.cpp src/ScalarConverter.cpp
  
 OBJ = $(SRC:.cpp=.o)
 
@@ -31,9 +31,9 @@ OBJ = $(SRC:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-		@echo "\033[1;34mCompiling EX01...\033[1;0m"
+		@echo "\033[1;34mCompiling EX00...\033[1;0m"
 		@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-		@echo "\033[1;32mEX01 build completed.\033[1;0m"
+		@echo "\033[1;32mEX00 build completed.\033[1;0m"
 
 clean:
 		@echo "\033[1;33mCleaning...\033[1;0m"
