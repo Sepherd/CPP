@@ -6,7 +6,7 @@
 /*   By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:14:53 by arecce            #+#    #+#             */
-/*   Updated: 2023/11/25 17:39:42 by sepherd          ###   ########.fr       */
+/*   Updated: 2023/11/25 18:47:26 by sepherd          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,9 @@ int	main()
 	 try
 	 {
 		Span s(10000);
-		s.addMultipleNumbers(10000);
+		std::srand(std::time(NULL));
+    	for (int i = 0; i < 10000; i++)
+        	s.addNumber(std::rand());
 		
 		std::cout << "Shortest span: " << s.shortestSpan() << std::endl;
 		std::cout << "Longest span: " << s.longestSpan() << std::endl;

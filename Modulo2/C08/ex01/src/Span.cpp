@@ -40,18 +40,12 @@ void	Span::addNumber(int num)
 	_v.push_back(num);
 }
 
-void	Span::addMultipleNumbers(unsigned int n)
+void	Span::addNumber(std::set<int>::iterator begin, std::set<int>::iterator end)
 {
-	if (_v.size() + n > _max)
+	unsigned int range = std::distance(begin, end);
+	if (_v.size() + range >= _max)
 		throw std::out_of_range("The range to insert exceed the max size of Span");
-	std::srand(std::time(nullptr));  // Inizializzazione del seed
-	std::set<int> random;
-	while (random.size() < n)
-	{
-    	int randomNum = std::rand() % 11000 + 1;
-		random.insert(randomNum);
-	}
-    _v.insert(_v.end(), random.begin(), random.end());
+	_v.insert(_v.end(), begin, end);
 }
 
 int	Span::shortestSpan()

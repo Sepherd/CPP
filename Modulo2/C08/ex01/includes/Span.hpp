@@ -14,10 +14,10 @@
 #define  SPAN_HPP
 
 #include <vector>
-#include <set>
 #include <iostream>
 #include <stdexcept>
 #include <algorithm>
+#include <set>
 #include <cstdlib>
 #include <ctime>
 
@@ -37,7 +37,7 @@ class  Span
 		~Span();
 
 		void	addNumber(int num);
-		void	addMultipleNumbers(unsigned int n);
+		void	addNumber(std::set<int>::iterator begin, std::set<int>::iterator end);
 		int		shortestSpan();
 		int		longestSpan();
 };
