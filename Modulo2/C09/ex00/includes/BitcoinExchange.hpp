@@ -17,6 +17,7 @@ class BitcoinExchange
         std::string                     _file;
     
     public:
+    
         BitcoinExchange();
         BitcoinExchange(std::string file, std::string db);
         ~BitcoinExchange();
