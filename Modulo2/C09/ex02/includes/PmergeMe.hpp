@@ -17,7 +17,8 @@ class PmergeMe
 
 		std::vector<int>	_v;
 		std::list<int>		_l;
-		clock_t				_vTime, _lTime;
+		double				_vTime = 0, _lTime = 0;
+		unsigned int		_vSize = 0, _lSize = 0;
 	
 	public:
 	
