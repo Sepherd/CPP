@@ -25,6 +25,10 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &other)
 	{
 		this->_v = other._v;
 		this->_l = other._l;
+		this->_vTime = other._vTime;
+		this->_lTime = other._lTime;
+		this->_vSize = other._vSize;
+		this->_lSize = other._lSize;
 	}
 	return (*this);
 }
@@ -118,19 +122,50 @@ void	PmergeMe::sort_vector(std::string sequence)
 	_vTime = ((double)time)/CLOCKS_PER_SEC;
 }
 
+void	listInsertSort(std::list<int> &l)
+{
+	for (std::list<int>::iterator it = l.begin(); it != l.end(); it++)
+	{
+		std::list<int>::iterator it2 = it;
+		while (it2 != l.begin() && *it2 < *std::prev(it2))
+			std::iter_swap(it2, std::next(it2));
+	}
+
+}
+
+std::list<int>	listMergeSort(std::list<int> &left, std::list<int> &right)
+{
+	std::list<int> result;
+	std::merge(left.begin(), left.end(), right.begin(), right.end(), std::back_inserter(result));
+	std::back_inserter(result);
+	return (result);
+}
+
+std::list<int>	listMergeInsertSort(std::list<int> &l)
+{
+	if (l.size() <= 1)
+		return (l);
+	std::list<int>::iterator middle = l.begin();
+	std::advance(middle, l.size() / 2);
+	std::list<int> left(l.begin(), middle);
+	std::list<int> right(middle, l.end());
+	left = listMergeInsertSort(left);
+	right = listMergeInsertSort(right);
+	return (listMergeSort(left, right));
+}
+
 void	PmergeMe::sort_list(std::string sequence)
 {
 	std::istringstream	iss(sequence);
 	int					num;
-	clock_t				time;
 
-	time = clock();
+	clock_t	time = clock();
 	while (iss >> num)
 	{
 		_l.push_back(num);
 		_lSize++;
 	}
-	_l.sort();
+	_l = listMergeInsertSort(_l);
 	time = clock() - time;
 	_lTime = ((double)time)/CLOCKS_PER_SEC;
 }
@@ -141,9 +176,9 @@ void	PmergeMe::sorting(std::string sequence)
 	sort_list(sequence);
 	std::cout << "Before:  " << sequence << std::endl;
 	std::cout << "After:   ";
-	for (std::list<int>::iterator it = _l.begin(); it != _l.end(); it++)
-		std::cout << *it << " ";
+	for (int num : _l)
+		std::cout << num << " ";
 	std::cout << std::endl;
 	std::cout << std::fixed << std::setprecision(6) << "Time to process a range of " << _vSize << " with std::vector :   "  << _vTime << " s"  << std::endl;
-	std::cout << std::fixed << std::setprecision(6) << "Time to process a range of " << _lSize << " with std::list :     "  << _lTime << " s"  << std::endl;
+	std::cout << std::fixed << std::setprecision(6) << "Time to process a range of " << _lSize << " with std::list   :   "  << _lTime << " s"  << std::endl;
 }
