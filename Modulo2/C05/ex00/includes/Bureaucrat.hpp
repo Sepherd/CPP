@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:14:53 by arecce            #+#    #+#             */
-/*   Updated: 2023/10/19 17:29:12 by arecce           ###   ########.fr       */
+/*   Updated: 2024/03/05 14:34:47 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,31 +37,20 @@ class Bureaucrat
 
 		class GradeTooHighException : public std::exception
 		{
-			private:
-
-				std::string		message;
-
 			public:
-			
-				GradeTooHighException(std::string msg) : message(msg) {}
 				std::string	what()
 				{
-					return (message);
+					return ("1 is the highest possible grade.");
 				}
 		};
 
 		class GradeTooLowException : public std::exception
 		{
-			private:
-
-				std::string		message;
 
 			public:
-			
-				GradeTooLowException(std::string msg) : message(msg) {}
 				std::string	what()
 				{
-					return (message);
+					return ("150 is the lowest possibile grade.");
 				}
 		};
 };
