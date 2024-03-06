@@ -5,13 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/13 16:14:53 by arecce            #+#    #+#             */
-/*   Updated: 2024/02/16 16:18:36 by arecce           ###   ########.fr       */
+/*   Created: 2024/03/06 18:27:35 by arecce            #+#    #+#             */
+/*   Updated: 2024/03/06 18:28:29 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/Bureaucrat.hpp"
-#include <iostream>
 
 int	main()
 {

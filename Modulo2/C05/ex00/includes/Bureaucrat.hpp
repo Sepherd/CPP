@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/13 16:14:53 by arecce            #+#    #+#             */
-/*   Updated: 2024/03/05 14:34:47 by arecce           ###   ########.fr       */
+/*   Created: 2024/03/06 18:28:44 by arecce            #+#    #+#             */
+/*   Updated: 2024/03/06 18:29:49 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define Bureaucrat_HPP
 
 #include <string>
+#include <iostream>
 
 class Bureaucrat
 {
