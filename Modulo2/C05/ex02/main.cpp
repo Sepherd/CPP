@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:14:53 by arecce            #+#    #+#             */
-/*   Updated: 2023/11/02 17:21:01 by arecce           ###   ########.fr       */
+/*   Updated: 2024/06/17 23:21:52 by sepherd          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 int	main()
 {
 	try {
-		Bureaucrat signer("Lello", 144);
+		Bureaucrat signer("Lello", 100);
 		ShrubberyCreationForm tree("Happy");
-		// signer.signForm(tree);
+		signer.signForm(tree);
 		// tree.execute(signer);
 		signer.executeForm(tree);
 		// signer.signForm(modulo);

@@ -53,10 +53,9 @@ class AForm
 				
 			public:
 			
-				GradeTooHighException(std::string msg) : message(msg) {}
-				std::string	what()
-				{
-					return (message);
+				GradeTooHighException(const std::string &msg) : message(msg) {}
+				virtual const char* what() const noexcept override {
+					return (message.c_str());
 				}
 		};
 

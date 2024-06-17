@@ -6,7 +6,7 @@
 /*   By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 19:10:35 by arecce            #+#    #+#             */
-/*   Updated: 2023/10/31 21:34:44 by sepherd          ###   ########.fr       */
+/*   Updated: 2024/06/17 23:17:32 by sepherd          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 void	PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
 	if (!getIsSigned())
-		throw NotSignedException(getName() + " is not signed");
+		throw NotSignedException(getName() + " is not signed.");
 	if (executor.getGrade() > getGradeToExecute())
-		throw GradeTooLowException(executor.getName() + " grade is too low");
-	std::cout << _target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
+		throw GradeTooLowException(executor.getName() + " grade is too low.");
+	std::cout << _target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }
 
 

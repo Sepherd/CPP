@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 19:10:35 by arecce            #+#    #+#             */
-/*   Updated: 2023/11/02 16:15:20 by arecce           ###   ########.fr       */
+/*   Updated: 2024/06/17 23:18:09 by sepherd          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
 	if (!getIsSigned())
-		throw NotSignedException(getName() + " is not signed");
+		throw NotSignedException(getName() + " is not signed.");
     if (executor.getGrade() > getGradeToExecute())
-        throw GradeTooLowException(executor.getName() + " grade is too low");
+        throw GradeTooLowException(executor.getName() + " grade is too low.");
     std::ofstream   file;
     file.open(_target + "_shrubbery");
     if (file.is_open())
@@ -60,12 +60,12 @@ void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const
         file << "    \\__/" << std::endl;
 
         if (!file.good())
-            std::cerr << "Writing error" << std::endl;
+            std::cerr << "Writing error." << std::endl;
         file.close();
-        std::cout << "A tree has been planted" << std::endl;
+        std::cout << "A tree has been planted." << std::endl;
     }
     else
-        std::cerr << "Unable to open file" << std::endl;
+        std::cerr << "Unable to open file." << std::endl;
 }
 
 

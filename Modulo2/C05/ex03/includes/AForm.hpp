@@ -53,10 +53,9 @@ class AForm
 				
 			public:
 			
-				GradeTooHighException(std::string msg) : message(msg) {}
-				std::string	what()
-				{
-					return (message);
+				GradeTooHighException(const std::string &msg) : message(msg) {}
+				virtual const char* what() const noexcept override {
+					return (message.c_str());
 				}
 		};
 
@@ -64,12 +63,12 @@ class AForm
 		{
 			private:
 				std::string		message;
+
 			public:
 
-				GradeTooLowException(std::string msg) : message(msg) {}
-				std::string what()
-				{
-					return (message);
+				GradeTooLowException(const std::string &msg) : message(msg) {}
+				virtual const char* what() const noexcept override {
+					return (message.c_str());
 				}	
 		};
 
@@ -79,10 +78,9 @@ class AForm
 				std::string		message;
 			public:
 
-				NotSignedException(std::string msg) : message(msg) {}
-				std::string what()
-				{
-					return (message);
+				NotSignedException(const std::string &msg) : message(msg) {}
+				virtual const char* what() const noexcept override {
+					return (message.c_str());
 				}
 		};
 
@@ -92,10 +90,9 @@ class AForm
 				std::string		message;
 			public:
 
-				AlreadySignedException(std::string msg) : message(msg) {}
-				std::string what()
-				{
-					return (message);
+				AlreadySignedException(const std::string &msg) : message(msg) {}
+				virtual const char* what() const noexcept override {
+					return (message.c_str());
 				}
 		};
 };
