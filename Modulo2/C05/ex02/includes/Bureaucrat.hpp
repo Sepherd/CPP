@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:14:53 by arecce            #+#    #+#             */
-/*   Updated: 2023/11/02 17:03:37 by arecce           ###   ########.fr       */
+/*   Updated: 2024/06/17 21:19:26 by sepherd          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef Bureaucrat_HPP
 #define Bureaucrat_HPP
 
+#pragma once
+#include <exception>
 #include <string>
 #include "AForm.hpp"
 
@@ -49,10 +51,9 @@ class Bureaucrat
 
 			public:
 			
-				GradeTooHighException(std::string msg) : message(msg) {}
-				std::string	what()
-				{
-					return (message);
+				GradeTooHighException(const std::string &msg) : message(msg) {}
+				virtual const char* what() const noexcept override {
+					return (message.c_str());
 				}
 		};
 
@@ -64,11 +65,10 @@ class Bureaucrat
 
 			public:
 			
-				GradeTooLowException(std::string msg) : message(msg) {}
-				std::string	what()
-				{
-					return (message);
-				}	
+				GradeTooLowException(const std::string &msg) : message(msg) {}
+				virtual const char* what() const noexcept override {
+					return (message.c_str());
+				}
 		};
 };
 
