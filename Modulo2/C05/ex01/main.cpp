@@ -19,10 +19,10 @@ int	main()
 	try {
 		Form	modulo("F24", 10, 50);
 		Bureaucrat signer("Lello", 7);
-		modulo.beSigned(signer);
+		std::cout << modulo << std::endl;
 		signer.signForm(modulo);
+		modulo.beSigned(signer);
 		// signer.signForm(modulo);
-		// std::cout << modulo << std::endl;
 	}
 	catch (Form::GradeTooHighException e) {
 		std::cout << e.what() << std::endl;
@@ -30,5 +30,30 @@ int	main()
 	catch (Form::GradeTooLowException e) {
 		std::cout << e.what() << std::endl;
 	}
+
+	std::cout << std::endl;
+
+	try {
+		Form	modulo("F24", 0, 145);
+	}
+	catch (Form::GradeTooHighException e) {
+		std::cout << e.what() << std::endl;
+	}
+	catch (Form::GradeTooLowException e) {
+		std::cout << e.what() << std::endl;
+	}
+
+	std::cout << std::endl;
+
+	try {
+		Form	modulo("F24", 10, 155);
+	}
+	catch (Form::GradeTooHighException e) {
+		std::cout << e.what() << std::endl;
+	}
+	catch (Form::GradeTooLowException e) {
+		std::cout << e.what() << std::endl;
+	}
+
 	return (0);
 }

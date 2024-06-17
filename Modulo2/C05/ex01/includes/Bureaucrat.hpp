@@ -13,6 +13,9 @@
 #ifndef Bureaucrat_HPP
 #define Bureaucrat_HPP
 
+#pragma once
+
+#include <exception>
 #include <string>
 #include "Form.hpp"
 
@@ -48,10 +51,9 @@ class Bureaucrat
 
 			public:
 			
-				GradeTooHighException(std::string msg) : message(msg) {}
-				std::string	what()
-				{
-					return (message);
+				GradeTooHighException(const std::string &msg) : message(msg) {}
+				virtual const char* what() const noexcept override {
+					return (message.c_str());
 				}
 		};
 
@@ -63,11 +65,10 @@ class Bureaucrat
 
 			public:
 			
-				GradeTooLowException(std::string msg) : message(msg) {}
-				std::string	what()
-				{
-					return (message);
-				}	
+				GradeTooLowException(const std::string &msg) : message(msg) {}
+				virtual const char* what() const noexcept override {
+					return (message.c_str());
+				}
 		};
 };
 

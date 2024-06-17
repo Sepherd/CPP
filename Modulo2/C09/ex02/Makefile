@@ -35,6 +35,10 @@ $(NAME): $(OBJ)
 		@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 		@echo "\033[1;32mEX2 build completed.\033[1;0m"
 
+%.o: %.cpp
+		@echo "\033[1;34mGenerating EX2 objects... Please wait.\033[1;0m"
+		@$(CC) $(CFLAGS) -c $< -o $@
+
 clean:
 		@echo "\033[1;33mCleaning...\033[1;0m"
 		@rm -f $(OBJ)

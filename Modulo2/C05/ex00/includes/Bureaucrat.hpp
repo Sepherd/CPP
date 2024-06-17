@@ -15,6 +15,7 @@
 
 #include <string>
 #include <iostream>
+#include <exception>
 
 class Bureaucrat
 {
@@ -38,20 +39,29 @@ class Bureaucrat
 
 		class GradeTooHighException : public std::exception
 		{
+			private:
+
+				std::string		message;
+
 			public:
-				std::string	what()
-				{
-					return ("1 is the highest possible grade.");
+			
+				GradeTooHighException(const std::string &msg) : message(msg) {}
+				virtual const char* what() const noexcept override {
+					return (message.c_str());
 				}
 		};
 
 		class GradeTooLowException : public std::exception
 		{
+			private:
+
+				std::string		message;
 
 			public:
-				std::string	what()
-				{
-					return ("150 is the lowest possibile grade.");
+			
+				GradeTooLowException(const std::string &msg) : message(msg) {}
+				virtual const char* what() const noexcept override {
+					return (message.c_str());
 				}
 		};
 };

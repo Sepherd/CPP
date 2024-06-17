@@ -70,7 +70,7 @@ int	Form::getGradeToExecute() const
 void	Form::beSigned(const Bureaucrat &b)
 {
 	if (b.getGrade() > _gradeToSign)
-		throw GradeTooLowException(b.getName() + " grade is too low.");
+		throw GradeTooLowException(b.getName() + " grade is too low for signing " + this->getName() + ".");
 	if (this->_isSigned == false)
 		this->_isSigned = true;
 	else
