@@ -3,7 +3,8 @@
 
 struct Data
 {
-    int d;
+    int num;
+    std::string str; 
 };
 
 #endif
