@@ -6,7 +6,7 @@
 /*   By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 19:10:35 by arecce            #+#    #+#             */
-/*   Updated: 2023/11/24 15:43:04 by sepherd          ###   ########.fr       */
+/*   Updated: 2024/06/18 18:13:02 by sepherd          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,21 @@ int	symCount(const std::string &value, char sym)
 {
 	int	c = 0;
 	for (std::string::size_type i = 0; i < value.length(); i++)
+	{
 		if (value[i] == sym)
 			c++;
-	if (c > 1)
-		return (0);
+		if (c > 1)
+			return (0);
+	}
 	return (1);
 }
 
-int	isDot(const std::string &value)
+int	checkSymbol(const std::string &value)
 {
-	if (!symCount(value, '.') || !symCount(value, '+') || !symCount(value, '-'))
+	if (!symCount(value, '.') || !symCount(value, '+') || !symCount(value, '-') || !symCount(value, 'f'))
 		return (0);
 	int	i = 0;
+	int isFloat = 0;
 	while (i < value.length())
 	{
 		if (value[i] == '+' || value[i] == '-')
@@ -52,10 +55,13 @@ int	isDot(const std::string &value)
 		while (isdigit(value[i]))
 			i++;
 		if (value[i] == '.')
+		{
 			i++;
+			isFloat = 1;
+		}
 		while (isdigit(value[i]))
 			i++;
-		if (value[i] == 'f' && value[i + 1] == '\0')
+		if (value[i] == 'f' && isFloat == 1 && value[i + 1] == '\0')
 			return (1);
 		else if (value[i] != '\0')
 			return (0);
@@ -65,137 +71,124 @@ int	isDot(const std::string &value)
 
 int	checkString(const std::string &value)
 {
-	int	i = 0;
-	if (!isdigit(value[i]))
-	{
-		while (i < value.length())
-			if (isdigit(value[i++]))
-				return (0);
-	}
-	std::istringstream iss(value);
-    char remaining;
+	if (value.length() > 1)
+		if (!checkSymbol(value))
+			return (0);
+	return (1);	
+}
 
-    int intValue;
-    iss >> intValue;
-    if (iss && !(iss >> remaining))
-        return (1);
-	else if (isDot(value))
+int isChar(const std::string &value)
+{
+	if (value.length() == 1 && !isdigit(value[0]))
 		return (1);
 	return (0);
 }
 
+void	convertDouble(const std::string &value)
+{
+	if (isChar(value))
+	{
+		std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(value[0]) << std::endl;
+		return ;
+	}
+	char *end;
+	errno = 0;
+	double i = std::strtod(value.c_str(), &end);
+	if ((*end != '\0' && *end != 'f') || errno == ERANGE)
+	{
+		std::cout << "double: impossible" << std::endl;
+		return ;
+	}
+	std::cout << "double: " << std::fixed << std::setprecision(1) << i << std::endl;
+}
+
+void	convertFloat(const std::string &value)
+{
+	if (isChar(value))
+	{
+		std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(value[0]) << "f" << std::endl;
+		return ;
+	}
+	char *end;
+	errno = 0;
+	float i = std::strtof(value.c_str(), &end);
+	if ((*end != '\0' && *end != 'f') || errno == ERANGE)
+	{
+		std::cout << "float: impossible" << std::endl;
+		return ;
+	}
+	std::cout << "float: " << std::fixed << std::setprecision(1) << i << "f" << std::endl;
+}
+
+void	convertInt(const std::string &value)
+{
+	if (isChar(value))
+	{
+		std::cout << "int: " << static_cast<int>(value[0]) << std::endl;
+		return ;
+	}
+	char *end;
+	long i = std::strtol(value.c_str(), &end, 10);
+	if (*end != '\0' && *end != '.')
+	{
+		std::cout << "int: impossible" << std::endl;
+		return ;
+	}
+	if (i > std::numeric_limits<int>::max() || i < std::numeric_limits<int>::min())
+	{
+		std::cout << "int: impossible" << std::endl;
+		return ;
+	}
+	std::cout << "int: " << i << std::endl;
+}
+
+void	convertChar(const std::string &value)
+{
+	std::istringstream cStream(value);  //classe di flusso di input che legge da una stringa
+	int		i;
+	char	c;
+	if (cStream >> i)	//estrae un intero dalla stringa, i avrà il valore di value
+		c = i;			//conversione implicita da int a char
+	else
+		c = value[0];
+	if (isprint(c))
+		std::cout << "char: " << c << std::endl;
+	else if (!isprint(c))
+		std::cout << "char: Non displayable" << std::endl;
+	else
+		std::cout << "char: impossible" << std::endl;
+}
+
 int	isSpecial(const std::string &value)
 {
-	if ((!value.compare(0, 3, "nan") && value.length() > 3) || (!value.compare(0, 3, "inf") && value.length() > 3) ||
-		(!value.compare(0, 4, "-inf") && value.length() > 4) || (!value.compare(0, 4, "+inf") && value.length() > 4) ||
-		(!value.compare(0, 4, "inff") && value.length() > 4) || (!value.compare(0, 5, "+inff") && value.length() > 5) ||
-		(!value.compare(0, 5, "-inff") && value.length() > 5) || (!value.compare(0, 4, "nanf") && value.length() > 4))
-	{
-		std::cout << "Invalid argument" << std::endl;
-		return (0);
-	}
+	// if ((!value.compare(0, 3, "nan") && value.length() > 3) || (!value.compare(0, 3, "inf") && value.length() > 3) ||
+	// 	(!value.compare(0, 4, "-inf") && value.length() > 4) || (!value.compare(0, 4, "+inf") && value.length() > 4) ||
+	// 	(!value.compare(0, 4, "inff") && value.length() > 4) || (!value.compare(0, 5, "+inff") && value.length() > 5) ||
+	// 	(!value.compare(0, 5, "-inff") && value.length() > 5) || (!value.compare(0, 4, "nanf") && value.length() > 4))
+	// {
+	// 	std::cout << "Invalid argumentaaaaa" << std::endl;
+	// 	return (0);
+	// }
 	if (value == "nan" || value == "inf" || value == "inff" || value == "nanf" || value == "+inf" ||
 		value == "-inf" || value == "-inff" || value == "+inff")
 	{
 		std::cout << "char: impossible\n";
-		std::cout << "int: impossible\n";		
-		std::cout << "float: " << std::stof(value) << "f \n";
-		std::cout << "char: " << std::stod(value) << std::endl;
+		// std::cout << "int: impossible\n";		
+		// std::cout << "float: " << std::stof(value) << "f\n";
+		// std::cout << "double: " << std::stod(value) << std::endl;
+		convertInt(value);
+		convertFloat(value);
+		convertDouble(value);
 		return (0);
 	}
 	return (1);
 }
 
-void	convertDouble(const std::string &value)
-{
-	if (!isdigit(value[0]))
-	{
-		char	c = value[0];
-		double	d = static_cast<double>(c);
-		std::cout << "double: " << std::fixed << std::setprecision(1) << d << std::endl;
-	}
-	else
-	{
-		try
-		{
-			double	d = std::stod(value);
-			std::cout << "double: " << std::fixed << std::setprecision(1) << d << std::endl;
-		}
-		catch (const std::out_of_range& e)
-		{
-			std::cerr << "float: Impossible" << std::endl;
-		}
-	}
-}
-
-void	convertFloat(const std::string &value)
-{
-	if (!isdigit(value[0]))
-	{
-		char	c = value[0];
-		float	f = static_cast<float>(c);
-		std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
-	}
-	else
-	{
-		try
-		{
-			float f = std::stof(value);
-			std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
-		}
-		catch (const std::out_of_range& e)
-		{
-			std::cerr << "float: Impossible" << std::endl;
-		}
-	}
-}
-
-void	convertInt(const std::string &value)
-{
-	if (!isdigit(value[0]))
-	{
-		char	c = value[0];
-		int		i = static_cast<int>(c);
-		std::cout << "int: " << i << std::endl;
-	}
-	else
-	{
-		try
-		{
-			int i = std::stoi(value);
-			std::cout << "int: " << i << std::endl;
-		}
-		catch (const std::out_of_range& e)
-		{
-			std::cerr << "int: Impossible" << std::endl;
-		}
-	}
-}
-
-void	convertChar(const std::string &value)
-{
-	std::istringstream cStream(value);
-	int		i;
-	char	c;
-	cStream >> i;
-	c = i;
-	if (value.length() == 1 && !isdigit(value[0]))
-		std::cout << "char: " << value[0] << std::endl;
-	else if (isprint(c))
-		std::cout << "char: " << c << std::endl;
-	else if (!isprint(c))
-		std::cout << "char: Non displayable" << std::endl;
-	else
-		std::cout << "char: Impossible" << std::endl;
-}
-
 void	ScalarConverter::convert(const std::string &value)
 {
 	if (!isSpecial(value))
-	{
 		return ;
-	}
-	if ((value.length() > 1 && !isdigit(value[0])) || (isdigit(value[0]) && !isDot(value)))
+	if (!checkString(value))
 	{
 		std::cout << "Invalid argument" << std::endl;
 		return ;
