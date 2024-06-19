@@ -18,7 +18,7 @@ void	printEl(const T &el)
 }
 
 template <typename T>
-void	doubleEl(T &el)
+void	addTwoEl(T &el)
 {
 	el += 2;
 }
