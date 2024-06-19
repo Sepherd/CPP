@@ -5,25 +5,31 @@ int	main()
 	Array<int>	a(5);
 	Array<int>	b;
 
-	std::cout << "a\n"; 
+	std::cout << "Array a: "; 
 	for(unsigned int i = 0; i < a.size(); i++)
 	{
 		a[i] = i;
-		std::cout << a[i] << std::endl;
+		std::cout << a[i] << ", ";
 	}
 
+	std::cout << std::endl;
+
 	b = a;
-	std::cout << "b\n"; 
+	std::cout << "Array b: "; 
 	for(unsigned int i = 0; i < b.size(); i++)
-		std::cout << b[i] << std::endl;
+		std::cout << b[i] << ", ";
+	
+	std::cout << std::endl;
 
 	b[0] = 42;
-	std::cout << "b\n"; 
+	std::cout << "Array b: "; 
 	for(unsigned int i = 0; i < b.size(); i++)
-		std::cout << b[i] << std::endl;
-	std::cout << "a\n";
+		std::cout << b[i] << ", ";
+	std::cout << std::endl;
+	std::cout << "Array a: ";
 	for(unsigned int i = 0; i < a.size(); i++)
-		std::cout << a[i] << std::endl;
+		std::cout << a[i] << ", "; 
+	std::cout << std::endl;
 	
 	try
 	{
@@ -42,5 +48,6 @@ int	main()
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	
+
+	return (0);
 }
