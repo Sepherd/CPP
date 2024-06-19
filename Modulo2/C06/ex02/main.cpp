@@ -26,7 +26,8 @@ class C : public Base {};
 
 Base* generate()
 {
-	int randomNumber = std::rand() % 3;
+	std::srand(time(0)); //inizializza il generatore di numeri casuali con il tempo attuale
+	int randomNumber = std::rand() % 3; //genera un numero casuale tra 0 e 2
 
 	switch (randomNumber) {
 		case 0:
@@ -38,9 +39,8 @@ Base* generate()
 		case 2:
 			std::cout << "C generated" << std::endl;
 			return new C();
-		default:
-			return nullptr;
 	}
+	return nullptr;
 }
 
 void identify(Base* p)
@@ -52,30 +52,34 @@ void identify(Base* p)
 	} else if (dynamic_cast<C*>(p) != nullptr) {
 		std::cout << "Type: C" << std::endl;
 	} else {
-		std::cout << "Type unknow" << std::endl;
+		std::cout << "Unknow type" << std::endl;
 	}
 }
 
 void identify(Base& p)
 {
-	if (typeid(p) == typeid(A)) {
-		std::cout << "Type: A" << std::endl;
-	} else if (typeid(p) == typeid(B)) {
-		std::cout << "Type: B" << std::endl;
-	} else if (typeid(p) == typeid(C)) {
-		std::cout << "Type: C" << std::endl;
-	} else {
-		std::cout << "Type unknow" << std::endl;
-	}
+	try {
+        A& a = dynamic_cast<A&>(p);
+        std::cout << "Type: A" << std::endl;
+    } catch (const std::bad_cast&) {}
+
+    try {
+        B& b = dynamic_cast<B&>(p);
+        std::cout << "Type: B" << std::endl;
+    } catch (const std::bad_cast&) {}
+
+    try {
+        C& c = dynamic_cast<C&>(p);
+        std::cout << "Type: C" << std::endl;
+    } catch (const std::bad_cast&) {}
 }
 
 int main()
 {
-	std::srand(static_cast<unsigned int>(std::time(nullptr)));
-
 	Base *randomObject = generate();
-	identify(randomObject);
-	identify(*randomObject);
+
+	identify(randomObject); //puntatore
+	identify(*randomObject); //riferimento
 
 	delete randomObject;
 
