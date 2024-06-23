@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:14:53 by arecce            #+#    #+#             */
-/*   Updated: 2023/10/19 17:31:29 by arecce           ###   ########.fr       */
+/*   Updated: 2024/06/23 16:48:44 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Form
 	private:
 
 		std::string const	_name;
-		bool				_isSigned = false;
+		bool				_isSigned;
 		const int			_gradeToSign;
 		const int			_gradeToExecute;
 
@@ -45,13 +45,14 @@ class Form
 		class GradeTooHighException : public std::exception
 		{
 			private:
-				
+
 				std::string		message;
-				
+
 			public:
 			
-				GradeTooHighException(std::string msg) : message(msg) {}
-				virtual const char* what() const noexcept override {
+				GradeTooHighException(const std::string &msg) : message(msg) {}
+				~GradeTooHighException() throw() {}
+				virtual const char* what() const throw() {
 					return (message.c_str());
 				}
 		};
@@ -59,11 +60,14 @@ class Form
 		class GradeTooLowException : public std::exception
 		{
 			private:
-				std::string		message;
-			public:
 
-				GradeTooLowException(std::string msg) : message(msg) {}
-				virtual const char* what() const noexcept override {
+				std::string		message;
+
+			public:
+			
+				GradeTooLowException(const std::string &msg) : message(msg) {}
+				~GradeTooLowException() throw() {}
+				virtual const char* what() const throw() {
 					return (message.c_str());
 				}
 		};

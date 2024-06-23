@@ -6,7 +6,7 @@
 #    By: arecce <arecce@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/06 17:52:32 by arecce            #+#    #+#              #
-#    Updated: 2024/03/06 17:52:54 by arecce           ###   ########.fr        #
+#    Updated: 2024/06/23 16:15:58 by arecce           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,10 @@ OBJ = $(SRC:.cpp=.o)
 # EOC = \033[1;0m
 
 all: $(NAME)
+
+%.o: %.cpp
+		@echo "\033[1;34mCompiling $<...\033[1;0m"
+		@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
 		@echo "\033[1;34mCompiling EX00...\033[1;0m"

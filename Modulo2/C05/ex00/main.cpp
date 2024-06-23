@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 18:27:35 by arecce            #+#    #+#             */
-/*   Updated: 2024/03/06 18:28:29 by arecce           ###   ########.fr       */
+/*   Updated: 2024/06/23 16:35:26 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ int	main()
 		std::cout << boss << std::endl;
 		boss.incrementGrade();
 	}
-	catch (Bureaucrat::GradeTooHighException e) {
+	catch (Bureaucrat::GradeTooHighException &e) {
 		std::cout << e.what() << std::endl;
 	}
-	catch (Bureaucrat::GradeTooLowException e) {
+	catch (Bureaucrat::GradeTooLowException &e) {
 		std::cout << e.what() << std::endl;
 	}
 
@@ -37,10 +37,10 @@ int	main()
 		std::cout << officeBoy << std::endl;
 		officeBoy.decrementGrade();
 	}
-	catch (Bureaucrat::GradeTooHighException e) {
+	catch (Bureaucrat::GradeTooHighException &e) {
 		std::cout << e.what() << std::endl;
 	}
-	catch (Bureaucrat::GradeTooLowException e) {
+	catch (Bureaucrat::GradeTooLowException &e) {
 		std::cout << e.what() << std::endl;
 	}
 
@@ -50,10 +50,10 @@ int	main()
 		Bureaucrat recommended("Giusto", 0);
 		std::cout << recommended << std::endl;
 	}
-	catch (Bureaucrat::GradeTooHighException e) {
+	catch (Bureaucrat::GradeTooHighException &e) {
 		std::cout << e.what() << std::endl;
 	}
-	catch (Bureaucrat::GradeTooLowException e) {
+	catch (Bureaucrat::GradeTooLowException &e) {
 		std::cout << e.what() << std::endl;
 	}
 
@@ -63,10 +63,10 @@ int	main()
 		Bureaucrat newbie("Ignazio", 189);
 		std::cout << newbie << std::endl;
 	}
-	catch (Bureaucrat::GradeTooHighException e) {
+	catch (Bureaucrat::GradeTooHighException &e) {
 		std::cout << e.what() << std::endl;
 	}
-	catch (Bureaucrat::GradeTooLowException e) {
+	catch (Bureaucrat::GradeTooLowException &e) {
 		std::cout << e.what() << std::endl;
 	}
 	return (0);

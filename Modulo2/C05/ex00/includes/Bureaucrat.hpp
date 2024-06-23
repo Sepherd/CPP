@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 18:28:44 by arecce            #+#    #+#             */
-/*   Updated: 2024/03/06 18:29:49 by arecce           ###   ########.fr       */
+/*   Updated: 2024/06/23 16:31:56 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ class Bureaucrat
 			public:
 			
 				GradeTooHighException(const std::string &msg) : message(msg) {}
-				virtual const char* what() const noexcept override {
+				~GradeTooHighException() throw() {}
+				virtual const char* what() const throw() {
 					return (message.c_str());
 				}
 		};
@@ -60,7 +61,8 @@ class Bureaucrat
 			public:
 			
 				GradeTooLowException(const std::string &msg) : message(msg) {}
-				virtual const char* what() const noexcept override {
+				~GradeTooLowException() throw() {}
+				virtual const char* what() const throw() {
 					return (message.c_str());
 				}
 		};

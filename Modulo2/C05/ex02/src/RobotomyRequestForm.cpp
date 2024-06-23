@@ -3,26 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+        */
+/*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 19:10:35 by arecce            #+#    #+#             */
-/*   Updated: 2024/06/17 23:17:23 by sepherd          ###   ########.fr       */
+/*   Updated: 2024/06/23 17:26:58 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/RobotomyRequestForm.hpp"
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 
 // RobotomyRequestForm::RobotomyRequestForm() : _target("Wood"), AForm()
 // {}
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target) : _target(target), AForm("Shrubbery", 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(std::string target) :  AForm("Robotomy", 72, 45), _target(target)
 {}
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {}
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &original) : _target(original._target), AForm(original)
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &original) : AForm(original), _target(original._target)
 {}
 
 RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &other)
@@ -41,10 +43,8 @@ void	RobotomyRequestForm::execute(Bureaucrat const &executor) const
 		throw NotSignedException(getName() + " is not signed.");
 	if (executor.getGrade() > getGradeToExecute())
 		throw GradeTooLowException(executor.getName() + " grade is too low.");
-	std::random_device rd;
-	std::mt19937 gen(rd());
-	std::bernoulli_distribution distribution(0.5);
-	bool num = distribution(gen);
+	std::srand(static_cast<unsigned int>(std::time(0)));
+	int num = std::rand() % 2;
 	if (num)
 	{
 		std::cout << "Drilling noises...\n";

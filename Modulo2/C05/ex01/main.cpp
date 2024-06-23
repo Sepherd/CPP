@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+        */
+/*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:14:53 by arecce            #+#    #+#             */
-/*   Updated: 2023/10/20 15:23:39 by sepherd          ###   ########.fr       */
+/*   Updated: 2024/06/23 16:37:28 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ int	main()
 		modulo.beSigned(signer);
 		// signer.signForm(modulo);
 	}
-	catch (Form::GradeTooHighException e) {
+	catch (Form::GradeTooHighException &e) {
 		std::cout << e.what() << std::endl;
 	}
-	catch (Form::GradeTooLowException e) {
+	catch (Form::GradeTooLowException &e) {
 		std::cout << e.what() << std::endl;
 	}
 
@@ -36,10 +36,10 @@ int	main()
 	try {
 		Form	modulo("F24", 0, 145);
 	}
-	catch (Form::GradeTooHighException e) {
+	catch (Form::GradeTooHighException &e) {
 		std::cout << e.what() << std::endl;
 	}
-	catch (Form::GradeTooLowException e) {
+	catch (Form::GradeTooLowException &e) {
 		std::cout << e.what() << std::endl;
 	}
 
@@ -48,10 +48,10 @@ int	main()
 	try {
 		Form	modulo("F24", 10, 155);
 	}
-	catch (Form::GradeTooHighException e) {
+	catch (Form::GradeTooHighException &e) {
 		std::cout << e.what() << std::endl;
 	}
-	catch (Form::GradeTooLowException e) {
+	catch (Form::GradeTooLowException &e) {
 		std::cout << e.what() << std::endl;
 	}
 

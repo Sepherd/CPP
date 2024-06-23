@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+        */
+/*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 19:10:35 by arecce            #+#    #+#             */
-/*   Updated: 2024/06/17 23:18:09 by sepherd          ###   ########.fr       */
+/*   Updated: 2024/06/23 17:18:15 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 // ShrubberyCreationForm::ShrubberyCreationForm() : _target("Wood"), AForm()
 // {}
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : _target(target), AForm("Shrubbery Creation", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("Shrubbery Creation", 145, 137), _target(target)
 {}
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {}
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &original) : _target(original._target), AForm(original)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &original) : AForm(original), _target(original._target)
 {}
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other)
@@ -42,7 +42,8 @@ void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const
     if (executor.getGrade() > getGradeToExecute())
         throw GradeTooLowException(executor.getName() + " grade is too low.");
     std::ofstream   file;
-    file.open(_target + "_shrubbery");
+    std::string     filename = _target + "_shrubbery";
+    file.open(filename.c_str());
     if (file.is_open())
     {
         file << "    _\\/_\n";

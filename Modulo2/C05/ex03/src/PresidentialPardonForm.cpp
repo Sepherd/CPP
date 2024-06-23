@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+        */
+/*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 19:10:35 by arecce            #+#    #+#             */
-/*   Updated: 2023/10/31 21:34:44 by sepherd          ###   ########.fr       */
+/*   Updated: 2024/06/23 17:44:18 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 // PresidentialPardonForm::PresidentialPardonForm() : _target("Wood"), AForm()
 // {}
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target) : _target(target), AForm("Shrubbery", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("Presidential Pardon", 25, 5), _target(target)
 {}
 
 PresidentialPardonForm::~PresidentialPardonForm()
 {}
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &original) : _target(original._target), AForm(original)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &original) : AForm(original), _target(original._target)
 {}
 
 PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &other)

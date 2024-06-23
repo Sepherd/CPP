@@ -15,6 +15,7 @@
 
 Form::Form() : _name("Modello 730"), _gradeToSign(10), _gradeToExecute(75)
 {
+	_isSigned = false;
 	std::cout << getName() << " has been created." << std::endl;
 }
 
@@ -28,6 +29,7 @@ Form::Form(std::string const name, const int toSign, const int toExecute) : _nam
 		throw GradeTooLowException("Lowest grade to sign " + getName() + " is 150");
 	if (toExecute > 150)
 		throw GradeTooLowException("Lowest grade to execute " + getName() + " is 150");
+	_isSigned = false;
 	std::cout << getName() << " has been created." << std::endl;
 }
 
@@ -44,6 +46,8 @@ Form::Form(const Form &original) : _name(original._name), _gradeToSign(original.
 Form &Form::operator=(const Form &other)
 {
 	std::cout << this->_name + " operator called." << std::endl;
+	if (this != &other)
+		this->_isSigned = other._isSigned;
 	return (*this);
 }
 

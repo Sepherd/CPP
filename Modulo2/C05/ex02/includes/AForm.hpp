@@ -16,7 +16,6 @@
 #include "Bureaucrat.hpp"
 #include <string>
 #include <fstream>
-#include <random>
 
 class Bureaucrat;
 
@@ -25,7 +24,7 @@ class AForm
 	private:
 
 		std::string const	_name;
-		bool				_isSigned = false;
+		bool				_isSigned;
 		const int			_gradeToSign;
 		const int			_gradeToExecute;
 
@@ -48,13 +47,14 @@ class AForm
 		class GradeTooHighException : public std::exception
 		{
 			private:
-				
+
 				std::string		message;
-				
+
 			public:
 			
 				GradeTooHighException(const std::string &msg) : message(msg) {}
-				virtual const char* what() const noexcept override {
+				~GradeTooHighException() throw() {}
+				virtual const char* what() const throw() {
 					return (message.c_str());
 				}
 		};
@@ -62,14 +62,16 @@ class AForm
 		class GradeTooLowException : public std::exception
 		{
 			private:
+
 				std::string		message;
 
 			public:
-
+			
 				GradeTooLowException(const std::string &msg) : message(msg) {}
-				virtual const char* what() const noexcept override {
+				~GradeTooLowException() throw() {}
+				virtual const char* what() const throw() {
 					return (message.c_str());
-				}	
+				}
 		};
 
 		class NotSignedException : public std::exception
@@ -79,7 +81,8 @@ class AForm
 			public:
 
 				NotSignedException(const std::string &msg) : message(msg) {}
-				virtual const char* what() const noexcept override {
+				~NotSignedException() throw() {}
+				virtual const char* what() const throw() {
 					return (message.c_str());
 				}
 		};
@@ -92,7 +95,8 @@ class AForm
 			public:
 
 				AlreadySignedException(const std::string &msg) : message(msg) {}
-				virtual const char* what() const noexcept override {
+				~AlreadySignedException() throw() {}
+				virtual const char* what() const throw() {
 					return (message.c_str());
 				}
 		};

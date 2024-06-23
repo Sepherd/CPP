@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+        */
+/*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 19:10:35 by arecce            #+#    #+#             */
-/*   Updated: 2023/10/31 21:30:24 by sepherd          ###   ########.fr       */
+/*   Updated: 2024/06/23 17:02:28 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 AForm::AForm() : _name("Modello 730"), _gradeToSign(10), _gradeToExecute(75)
 {
+	_isSigned = false;
 	std::cout << getName() << " has been created." << std::endl;
 }
 
@@ -28,6 +29,7 @@ AForm::AForm(std::string const name, const int toSign, const int toExecute) : _n
 		throw GradeTooLowException("Lowest grade to sign " + getName() + " is 150");
 	if (toExecute > 150)
 		throw GradeTooLowException("Lowest grade to execute " + getName() + " is 150");
+	_isSigned = false;
 	std::cout << getName() << " has been created." << std::endl;
 }
 
@@ -44,6 +46,8 @@ AForm::AForm(const AForm &original) : _name(original._name), _gradeToSign(origin
 AForm &AForm::operator=(const AForm &other)
 {
 	std::cout << this->_name + " operator called." << std::endl;
+	if (this != &other)
+		this->_isSigned = other._isSigned;
 	return (*this);
 }
 
