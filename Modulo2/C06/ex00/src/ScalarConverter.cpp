@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+        */
+/*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 19:10:35 by arecce            #+#    #+#             */
-/*   Updated: 2024/06/18 18:13:02 by sepherd          ###   ########.fr       */
+/*   Updated: 2024/06/23 20:16:28 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,19 @@ ScalarConverter::~ScalarConverter()
 
 ScalarConverter::ScalarConverter(const ScalarConverter &original)
 {
+	(void)original;
 }
 
 ScalarConverter &ScalarConverter::operator=(const ScalarConverter &other)
 {
+	(void)other;
 	return (*this);
 }
 
 int	symCount(const std::string &value, char sym)
 {
 	int	c = 0;
-	for (std::string::size_type i = 0; i < value.length(); i++)
+	for (std::string::size_type i = 0; i < value.length(); ++i)
 	{
 		if (value[i] == sym)
 			c++;
@@ -46,7 +48,7 @@ int	checkSymbol(const std::string &value)
 {
 	if (!symCount(value, '.') || !symCount(value, '+') || !symCount(value, '-') || !symCount(value, 'f'))
 		return (0);
-	int	i = 0;
+	std::string::size_type i = 0;
 	int isFloat = 0;
 	while (i < value.length())
 	{
@@ -92,9 +94,8 @@ void	convertDouble(const std::string &value)
 		return ;
 	}
 	char *end;
-	errno = 0;
 	double i = std::strtod(value.c_str(), &end);
-	if ((*end != '\0' && *end != 'f') || errno == ERANGE)
+	if (*end != '\0' && *end != 'f')
 	{
 		std::cout << "double: impossible" << std::endl;
 		return ;
@@ -110,9 +111,8 @@ void	convertFloat(const std::string &value)
 		return ;
 	}
 	char *end;
-	errno = 0;
 	float i = std::strtof(value.c_str(), &end);
-	if ((*end != '\0' && *end != 'f') || errno == ERANGE)
+	if (*end != '\0' && *end != 'f')
 	{
 		std::cout << "float: impossible" << std::endl;
 		return ;
@@ -134,7 +134,9 @@ void	convertInt(const std::string &value)
 		std::cout << "int: impossible" << std::endl;
 		return ;
 	}
-	if (i > std::numeric_limits<int>::max() || i < std::numeric_limits<int>::min())
+	int max = 2147483647;
+	int min = -2147483648;
+	if (i > max || i < min)
 	{
 		std::cout << "int: impossible" << std::endl;
 		return ;
@@ -151,9 +153,9 @@ void	convertChar(const std::string &value)
 		c = i;			//conversione implicita da int a char
 	else
 		c = value[0];
-	if (isprint(c))
+	if (isprint(c) && i <= 127)
 		std::cout << "char: " << c << std::endl;
-	else if (!isprint(c))
+	else if (!isprint(c) || i > 127)
 		std::cout << "char: Non displayable" << std::endl;
 	else
 		std::cout << "char: impossible" << std::endl;
