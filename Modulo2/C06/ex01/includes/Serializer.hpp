@@ -15,9 +15,7 @@
 
 #include <string>
 #include <iostream>
-#include <sstream>
-#include <iomanip>
-#include <limits>
+#include <stdint.h>
 
 #include "Data.hpp"
 

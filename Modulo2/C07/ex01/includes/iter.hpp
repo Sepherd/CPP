@@ -1,5 +1,5 @@
-#ifndef TEMPLATE_HPP
-#define TEMPLATE_HPP
+#ifndef ITER_HPP
+#define ITER_HPP
 
 #include <iostream>
 #include <iomanip>
@@ -12,9 +12,9 @@ void    iter(T arr, size_t arr_len, F f)
 }
 
 template <typename T>
-void	printEl(const T &el)
+void	printEl(T &el)
 {
-	std::cout << std::fixed << std::setprecision(1) << el << std::endl;
+	std::cout << std::fixed << std::setprecision(1) << el << " ";
 }
 
 template <typename T>

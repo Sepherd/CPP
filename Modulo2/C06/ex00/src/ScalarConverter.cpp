@@ -146,19 +146,26 @@ void	convertInt(const std::string &value)
 
 void	convertChar(const std::string &value)
 {
-	std::istringstream cStream(value);  //classe di flusso di input che legge da una stringa
-	int		i;
 	char	c;
-	if (cStream >> i)	//estrae un intero dalla stringa, i avrà il valore di value
-		c = i;			//conversione implicita da int a char
-	else
+	if (value.length() > 1)
+	{
+		int i = std::atoi(value.c_str());
+		if (i < 0 || i > 127)
+			std::cout << "char: impossible" << std::endl;
+		else if ((i >= 0 && i < 32) || i == 127)
+			std::cout << "char: Non displayable" << std::endl;
+		else {
+			c = static_cast<char>(i);
+			std::cout << "char: " << c << std::endl;
+		}
+	}
+	else {
 		c = value[0];
-	if (isprint(c) && i <= 127)
-		std::cout << "char: " << c << std::endl;
-	else if (!isprint(c) || i > 127)
-		std::cout << "char: Non displayable" << std::endl;
-	else
-		std::cout << "char: impossible" << std::endl;
+		if (isprint(c))
+			std::cout << "char: " << c << std::endl;
+		else
+			std::cout << "char: Non displayable" << std::endl;
+	}
 }
 
 int	isSpecial(const std::string &value)

@@ -22,10 +22,12 @@ Serializer::~Serializer()
 
 Serializer::Serializer(const Serializer &original)
 {
+	*this = original;
 }
 
 Serializer &Serializer::operator=(const Serializer &other)
 {
+	(void)other;
 	return (*this);
 }
 

@@ -12,7 +12,7 @@
 
 #include "includes/Serializer.hpp"
 
-int	main(int ac, char **av)
+int	main()
 {
 	Data data;
 	data.num = 42;

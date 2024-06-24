@@ -13,16 +13,23 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <exception>
 
 class Base 
 {
 	public:
-		virtual ~Base() = default;
+		virtual ~Base() {};
 };
 
-class A : public Base {};
-class B : public Base {};
-class C : public Base {};
+class A : public Base {
+		virtual ~A() {};
+};
+class B : public Base {
+		virtual ~B() {};
+};
+class C : public Base {
+		virtual ~C() {};
+};
 
 Base* generate()
 {
@@ -40,16 +47,16 @@ Base* generate()
 			std::cout << "C generated" << std::endl;
 			return new C();
 	}
-	return nullptr;
+	return 0;
 }
 
 void identify(Base* p)
 {
-	if (dynamic_cast<A*>(p) != nullptr) {
+	if (dynamic_cast<A*>(p)) {
 		std::cout << "Type: A" << std::endl;
-	} else if (dynamic_cast<B*>(p) != nullptr) {
+	} else if (dynamic_cast<B*>(p)) {
 		std::cout << "Type: B" << std::endl;
-	} else if (dynamic_cast<C*>(p) != nullptr) {
+	} else if (dynamic_cast<C*>(p)) {
 		std::cout << "Type: C" << std::endl;
 	} else {
 		std::cout << "Unknow type" << std::endl;
@@ -59,19 +66,25 @@ void identify(Base* p)
 void identify(Base& p)
 {
 	try {
-        A& a = dynamic_cast<A&>(p);
-        std::cout << "Type: A" << std::endl;
-    } catch (const std::bad_cast&) {}
-
-    try {
-        B& b = dynamic_cast<B&>(p);
-        std::cout << "Type: B" << std::endl;
-    } catch (const std::bad_cast&) {}
-
-    try {
-        C& c = dynamic_cast<C&>(p);
-        std::cout << "Type: C" << std::endl;
-    } catch (const std::bad_cast&) {}
+		A &a = dynamic_cast<A&>(p);
+		(void)a;
+		std::cout << "Type: A" << std::endl;
+	} catch (std::exception &e) {
+		try {
+			B &b = dynamic_cast<B&>(p);
+			(void)b;
+			std::cout << "Type: B" << std::endl;
+		} catch (std::exception &e) {
+			try {
+				C &c = dynamic_cast<C&>(p);
+				(void)c;
+				std::cout << "Type: C" << std::endl;
+			} catch (std::exception &e) {
+				std::cout << "Unknow type" << std::endl;
+			}
+		}
+	
+	}
 }
 
 int main()
@@ -81,7 +94,13 @@ int main()
 	identify(randomObject); //puntatore
 	identify(*randomObject); //riferimento
 
+	Base *base = new Base();
+
+	identify(base);
+	identify(*base);
+
 	delete randomObject;
+	delete base;
 
 	return 0;
 }
