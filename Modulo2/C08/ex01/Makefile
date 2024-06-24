@@ -30,6 +30,10 @@ OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
+%.o: %.cpp
+		@echo "\033[1;34mCompiling $<...\033[1;0m"
+		@$(CC) $(CFLAGS) -c $< -o $@
+
 $(NAME): $(OBJ)
 		@echo "\033[1;34mCompiling EX01...\033[1;0m"
 		@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)

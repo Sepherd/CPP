@@ -28,23 +28,23 @@ int	main()
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << e.what() << std::endl;
 	}
-	 try
-	 {
+	try
+	{
 		Span s(10000);
 		std::srand(std::time(NULL));
     	for (int i = 0; i < 10000; i++)
-        	s.addNumber(std::rand());
-		
+			s.addNumber(std::rand());
+
 		std::cout << "Shortest span: " << s.shortestSpan() << std::endl;
 		std::cout << "Longest span: " << s.longestSpan() << std::endl;
-		
+
 		s.addNumber(10001);
 	 }
 	 catch(const std::exception& e)
 	 {
-		std::cerr << e.what() << '\n';
+		std::cerr << e.what() << std::endl;
 	 }
 	 try
 	 {
@@ -53,7 +53,7 @@ int	main()
 	 }
 	 catch(const std::exception& e)
 	 {
-		std::cerr << e.what() << '\n';
+		std::cerr << e.what() << std::endl;
 	 }
 	 try
 	 {
@@ -62,7 +62,7 @@ int	main()
 	 }
 	 catch(const std::exception& e)
 	 {
-		std::cerr << e.what() << '\n';
+		std::cerr << e.what() << std::endl;
 	 }
-	 
+	return (0);
 }

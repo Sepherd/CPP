@@ -1,16 +1,20 @@
-#include "includes/EasyFind.hpp"
+#include "includes/easyfind.hpp"
 
 int main()
 {
 	try
 	{
-		std::vector<int> v = {3, 90, 9, -1, 55};
-		auto find = easyfind(v, 90);
-		std::cout << "Element found in vector: " << *find << std::endl;
-		find = easyfind(v, 55);
-		std::cout << "Element found in vector: " << *find << std::endl;
-		find = easyfind(v, 2);
-		std::cout << "Element found in vector: " << *find << std::endl;
+		int arr[] = {3, 90, 9, -1, 55};
+		std::vector<int> v(arr, arr + sizeof(arr) / sizeof(int));
+		int toFind = 90;
+		std::vector<int>::iterator it = easyfind(v, toFind);
+		std::cout << "Element " << toFind << " found in pos: " << std::distance(v.begin(), it) << std::endl;
+		toFind = -1;
+		it = easyfind(v, toFind);
+		std::cout << "Element " << toFind << " found in pos: " << std::distance(v.begin(), it) << std::endl;
+		toFind = 2;
+		it = easyfind(v, toFind);
+		std::cout << "Element " << toFind << " found in pos: " << std::distance(v.begin(), it) << std::endl;
 	}
 	catch(const std::exception& e)
 	{
