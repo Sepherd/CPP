@@ -4,7 +4,7 @@ int main()
 {
 	try
 	{
-		int arr[] = {3, 90, 9, -1, 55};
+		int arr[] = {3, 90, 9, -1, 90, 55};
 		std::vector<int> v(arr, arr + sizeof(arr) / sizeof(int));
 		int toFind = 90;
 		std::vector<int>::iterator it = easyfind(v, toFind);
