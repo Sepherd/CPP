@@ -5,6 +5,18 @@ int	main()
 	Array<int> a(5);
 	Array<int> b;
 
+	std::cout << "Array a size: " << a.size() << std::endl;
+	std::cout << "Array b size: " << b.size() << std::endl;
+
+	try
+	{
+		std::cout << b[0] << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
 	std::cout << "Array a: "; 
 	for(unsigned int i = 0; i < a.size(); i++)
 	{
@@ -45,6 +57,7 @@ int	main()
 	for(unsigned int i = 0; i < a.size(); i++)
 		std::cout << a[i] << ", ";
 	std::cout << std::endl;
+
 	
 	try
 	{

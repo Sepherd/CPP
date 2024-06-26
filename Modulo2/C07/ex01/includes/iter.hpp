@@ -5,7 +5,7 @@
 #include <iomanip>
 
 template <typename T, typename F>
-void    iter(T arr, size_t arr_len, F f)
+void    iter(T &arr, size_t arr_len, F f)
 {
 	for (size_t i = 0; i < arr_len; i++)
 		f(arr[i]);
@@ -22,5 +22,11 @@ void	addTwoEl(T &el)
 {
 	el += 2;
 }
+
+// template <typename T, typename F>
+// void convertEl(T &el)
+// {
+// 	std::cout << static_cast<F>(el) << " ";
+// }
 
 #endif
