@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+        */
+/*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:14:53 by arecce            #+#    #+#             */
-/*   Updated: 2024/06/18 20:17:29 by sepherd          ###   ########.fr       */
+/*   Updated: 2024/06/26 17:55:13 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,13 @@ int	main()
 	uintptr_t	serialized = Serializer::serialize(&data);
 	Data*	deserialized = Serializer::deserialize(serialized);
 
+	std::cout << "Serialized: " << serialized << std::endl;
+
 	std::cout << "Deserialized.num: " << deserialized->num << std::endl;
 	std::cout << "Deserialized.str: " << deserialized->str << std::endl;
+
+	std::cout << "Data.num: " << data.num << std::endl;
+	std::cout << "Data.str: " << data.str << std::endl;
 	
 	if (deserialized == &data)
 	{

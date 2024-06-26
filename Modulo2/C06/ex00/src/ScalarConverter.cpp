@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 19:10:35 by arecce            #+#    #+#             */
-/*   Updated: 2024/06/23 20:16:28 by arecce           ###   ########.fr       */
+/*   Updated: 2024/06/26 17:40:59 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ int	checkSymbol(const std::string &value)
 		}
 		while (isdigit(value[i]))
 			i++;
+		if ((value[i] == 'f' && value[i - 1] == '.') || (value[i - 1] == '.' && value[i] == '\0'))
+			return (0);
 		if (value[i] == 'f' && isFloat == 1 && value[i + 1] == '\0')
 			return (1);
 		else if (value[i] != '\0')
@@ -84,6 +86,112 @@ int isChar(const std::string &value)
 	if (value.length() == 1 && !isdigit(value[0]))
 		return (1);
 	return (0);
+}
+
+int symBeing(const std::string &value, char sym)
+{
+	int	c = 0;
+	for (std::string::size_type i = 0; i < value.length(); ++i)
+	{
+		if (value[i] == sym)
+			c++;
+		if (c == 1)
+			return (1);
+	}
+	return (0);
+}
+
+int isNumeric(const std::string &value)
+{
+	if (symBeing(value, 'f'))
+		return (1); //float
+	else if (symBeing(value, '.'))
+		return (2); //double
+	return (0); //int
+}
+
+void convertStringTo(const std::string &value) {
+	if (isChar(value)) {
+		char c = static_cast<char>(value[0]);
+		int i = static_cast<int>(c);
+		float f = static_cast<float>(c);
+		double d = static_cast<double>(c);
+		std::cout << "char: " << c << std::endl;
+		std::cout << "int: " << i << std::endl;
+		std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
+		std::cout << "double: " << std::fixed << std::setprecision(1) << d << std::endl;
+	}
+	else if (isNumeric(value) == 0)
+	{
+		char *end;
+		long num = std::strtol(value.c_str(), &end, 10);
+		if (num > 2147483647 || num < -2147483648 || *end != '\0')
+		{
+			std::cerr << "Error: conversion from int impossible" << std::endl;
+			return ;
+		}
+		int i = std::atoi(value.c_str());
+		if (i < 0 || i > 127)
+			std::cout << "char: impossible" << std::endl;
+		else if ((i >= 0 && i < 32) || i == 127)
+			std::cout << "char: Non displayable" << std::endl;
+		else {
+			char c = static_cast<char>(i);
+			std::cout << "char: " << c << std::endl;
+		}
+		float f = static_cast<float>(i);
+		double d = static_cast<double>(i);
+		std::cout << "int: " << i << std::endl;
+		std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
+		std::cout << "double: " << std::fixed << std::setprecision(1) << d << std::endl;
+	}
+	else if (isNumeric(value) == 1)
+	{
+		char *end;
+		float f = std::strtof(value.c_str(), &end);
+		if (f < 0 || f > 127)
+			std::cout << "char: impossible" << std::endl;
+		else if ((f >= 0 && f < 32) || f == 127)
+			std::cout << "char: Non displayable" << std::endl;
+		else {
+			char c = static_cast<char>(f);
+			std::cout << "char: " << c << std::endl;
+		}
+		if (f < -2147483648 || f > 2147483647)
+			std::cout << "int: impossible" << std::endl;
+		else
+		{
+			int i = static_cast<int>(f);
+			std::cout << "int: " << i << std::endl;
+		}
+		std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
+		double d = static_cast<double>(f);
+		std::cout << "double: " << std::fixed << std::setprecision(1) << d << std::endl;
+	}
+	else if (isNumeric(value) == 2)
+	{
+		char *end;
+		double d = std::strtod(value.c_str(), &end);
+		if (d < 0 || d > 127)
+			std::cout << "char: impossible" << std::endl;
+		else if ((d >= 0 && d < 32) || d == 127)
+			std::cout << "char: Non displayable" << std::endl;
+		else {
+			char c = static_cast<char>(d);
+			std::cout << "char: " << c << std::endl;
+		}
+		if (d < -2147483648 || d > 2147483647)
+			std::cout << "int: impossible" << std::endl;
+		else
+		{
+			int i = static_cast<int>(d);
+			std::cout << "int: " << i << std::endl;
+		}
+		float f = static_cast<float>(d);
+		std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
+		std::cout << "double: " << std::fixed << std::setprecision(1) << d << std::endl;
+		
+	}
 }
 
 void	convertDouble(const std::string &value)
@@ -144,12 +252,12 @@ void	convertInt(const std::string &value)
 	std::cout << "int: " << i << std::endl;
 }
 
-void	convertChar(const std::string &value)
+/* void	convertChar(const std::string &value)
 {
 	char	c;
+	int i = std::atoi(value.c_str());
 	if (value.length() > 1)
 	{
-		int i = std::atoi(value.c_str());
 		if (i < 0 || i > 127)
 			std::cout << "char: impossible" << std::endl;
 		else if ((i >= 0 && i < 32) || i == 127)
@@ -160,31 +268,20 @@ void	convertChar(const std::string &value)
 		}
 	}
 	else {
-		c = value[0];
+		c = static_cast<char>(i);
 		if (isprint(c))
 			std::cout << "char: " << c << std::endl;
 		else
 			std::cout << "char: Non displayable" << std::endl;
 	}
-}
+} */
 
 int	isSpecial(const std::string &value)
 {
-	// if ((!value.compare(0, 3, "nan") && value.length() > 3) || (!value.compare(0, 3, "inf") && value.length() > 3) ||
-	// 	(!value.compare(0, 4, "-inf") && value.length() > 4) || (!value.compare(0, 4, "+inf") && value.length() > 4) ||
-	// 	(!value.compare(0, 4, "inff") && value.length() > 4) || (!value.compare(0, 5, "+inff") && value.length() > 5) ||
-	// 	(!value.compare(0, 5, "-inff") && value.length() > 5) || (!value.compare(0, 4, "nanf") && value.length() > 4))
-	// {
-	// 	std::cout << "Invalid argumentaaaaa" << std::endl;
-	// 	return (0);
-	// }
 	if (value == "nan" || value == "inf" || value == "inff" || value == "nanf" || value == "+inf" ||
 		value == "-inf" || value == "-inff" || value == "+inff")
 	{
 		std::cout << "char: impossible\n";
-		// std::cout << "int: impossible\n";		
-		// std::cout << "float: " << std::stof(value) << "f\n";
-		// std::cout << "double: " << std::stod(value) << std::endl;
 		convertInt(value);
 		convertFloat(value);
 		convertDouble(value);
@@ -202,8 +299,5 @@ void	ScalarConverter::convert(const std::string &value)
 		std::cout << "Invalid argument" << std::endl;
 		return ;
 	}
-	convertChar(value);
-	convertInt(value);
-	convertFloat(value);
-	convertDouble(value);
+	convertStringTo(value);
 }

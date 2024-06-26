@@ -24,7 +24,6 @@ class  Serializer
 	private:
 
 		Serializer();
-		Serializer(std::string const name, int grade);
 		Serializer(const  Serializer &original);
 		Serializer &operator=(const  Serializer &other);
 
