@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+         #
+#    By: arecce <arecce@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/13 16:15:00 by arecce            #+#    #+#              #
-#    Updated: 2023/11/26 22:29:45 by sepherd          ###   ########.fr        #
+#    Updated: 2024/06/27 18:12:18 by arecce           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,10 @@ OBJ = $(SRC:.cpp=.o)
 # EOC = \033[1;0m
 
 all: $(NAME)
+
+%.o: %.cpp
+		@echo "\033[1;34mCompiling $<...\033[1;0m"
+		@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
 		@echo "\033[1;34mCompiling EX0...\033[1;0m"

@@ -13,7 +13,6 @@
 #ifndef  MUTANTSTACK_HPP
 #define  MUTANTSTACK_HPP
 
-#include <vector>
 #include <iostream>
 #include <stack>
 

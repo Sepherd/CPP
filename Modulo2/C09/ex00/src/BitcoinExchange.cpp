@@ -7,14 +7,14 @@ BitcoinExchange::BitcoinExchange()
 
 BitcoinExchange::BitcoinExchange(std::string file, std::string db) : _file(file)
 {
-	std::ifstream data(_file);
-	if (!data.is_open())
+	std::ifstream data(_file.c_str());
+	if (!data)
 	{
 		std::cerr << "Could not open file." << std::endl;
 		return ;
 	}
-	std::ifstream database(db);
-	if (!database.is_open())
+	std::ifstream database(db.c_str());
+	if (!database)
 	{
 		std::cerr << "Could not open database." << std::endl;
 		return ;
@@ -22,12 +22,13 @@ BitcoinExchange::BitcoinExchange(std::string file, std::string db) : _file(file)
 
 	std::string	line;
 	std::getline(database, line);
+	char *end;
 	while (std::getline(database, line))
 	{
 		size_t		pos = line.find(',');
 		std::string	date = line.substr(0, pos);
-		float		rate = std::stof(line.substr(pos + 1));
-		_btcRate[date] = {rate};
+		float		rate = std::strtof(line.substr(pos + 1).c_str(), &end);
+		_btcRate[date] = rate;
 	}
 	database.close();
 }
@@ -65,7 +66,7 @@ int	checkDate(std::string date)
 
 void	BitcoinExchange::exchange()
 {
-	std::ifstream data(_file);
+	std::ifstream data(_file.c_str());
 	if (!data.is_open())
 	{
 		std::cerr << "Could not open file." << std::endl;

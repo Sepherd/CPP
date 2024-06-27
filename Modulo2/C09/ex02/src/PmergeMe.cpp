@@ -2,12 +2,20 @@
 
 PmergeMe::PmergeMe()
 {
+	_vTime = 0;
+	_lTime = 0;
+	_vSize = 0;
+	_lSize = 0;
 	std::string	sequence = "10 4 6 2 21";
 	sorting(sequence);
 }
 
 PmergeMe::PmergeMe(std::string sequence)
 {
+	_vTime = 0;
+	_lTime = 0;
+	_vSize = 0;
+	_lSize = 0;
 	sorting(sequence);
 }
 
@@ -62,7 +70,7 @@ void	vectorMergeSort(std::vector<int> &v, int left, int middle, int right)
 		R[j] = v[middle + 1 + j];
 	
 	int i = 0, j = 0, k = left;
-	while (i < n1 && j << n2)
+	while (i < n1 && j < n2)
 	{
 		if (L[i] <= R[j])
 		{
@@ -126,9 +134,10 @@ void	listInsertSort(std::list<int> &l)
 {
 	for (std::list<int>::iterator it = l.begin(); it != l.end(); it++)
 	{
-		std::list<int>::iterator it2 = it;
-		while (it2 != l.begin() && *it2 < *std::prev(it2))
-			std::iter_swap(it2, std::next(it2));
+		std::list<int>::iterator nextIt = it;
+		++nextIt;
+		while (nextIt != l.begin() && *it > *nextIt)
+			std::iter_swap(nextIt, it);
 	}
 
 }
@@ -176,8 +185,8 @@ void	PmergeMe::sorting(std::string sequence)
 	sort_list(sequence);
 	std::cout << "Before:  " << sequence << std::endl;
 	std::cout << "After:   ";
-	for (int num : _l)
-		std::cout << num << " ";
+	for (std::list<int>::iterator it = _l.begin(); it != _l.end(); it++)
+		std::cout << *it << " ";
 	std::cout << std::endl;
 	std::cout << std::fixed << std::setprecision(6) << "Time to process a range of " << _vSize << " with std::vector :   "  << _vTime << " s"  << std::endl;
 	std::cout << std::fixed << std::setprecision(6) << "Time to process a range of " << _lSize << " with std::list   :   "  << _lTime << " s"  << std::endl;

@@ -9,7 +9,7 @@ bool check_seq(std::string seq)
 	{
 		if (seq[i] == ' ')
 			continue ;
-		if (!isdigit(seq[i]) && seq[i] != '-' || (seq[i] == '-' && !isdigit(seq[i + 1])))
+		if ((!isdigit(seq[i]) && seq[i] != '-') || (seq[i] == '-' && !isdigit(seq[i + 1])))
 		{
 			std::cout << "Error! Provide only numbers" << std::endl;
 			return (0);

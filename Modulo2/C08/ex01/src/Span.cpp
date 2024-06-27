@@ -28,8 +28,11 @@ Span::Span(const Span &original)
 
 Span &Span::operator=(const Span &other)
 {
-	_v = other._v;
-	_max = other._max;
+	if (this != &other)
+	{
+		_v = other._v;
+		_max = other._max;
+	}
 	return (*this);
 }
 
@@ -40,7 +43,7 @@ void	Span::addNumber(int num)
 	_v.push_back(num);
 }
 
-void	Span::addNumber(std::set<int>::iterator begin, std::set<int>::iterator end)
+void	Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
 {
 	unsigned int range = std::distance(begin, end);
 	if (_v.size() + range >= _max)

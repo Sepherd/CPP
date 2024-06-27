@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+        */
+/*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:14:53 by arecce            #+#    #+#             */
-/*   Updated: 2023/11/25 18:47:26 by sepherd          ###   ########.fr       */
+/*   Updated: 2024/06/27 16:23:36 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,53 +16,45 @@ int	main()
 {
 	try
 	{
-		Span	s(3);
+		Span	s(9);
 		s.addNumber(42);
 		s.addNumber(60);
-		s.addNumber(4);
+		s.addNumber(5);
+
 
 		std::cout << "Shortest span: " << s.shortestSpan() << std::endl;
 		std::cout << "Longest span: " << s.longestSpan() << std::endl;
 		
-		s.addNumber(1000);
+		int	arr[] = {4, 12, 2, 70, 11, 0};
+		std::vector<int> vec(arr, arr + sizeof(arr) / sizeof(arr[0]));
+		
+		s.addNumber(vec.begin(), vec.end());
+
+		std::cout << "Shortest span: " << s.shortestSpan() << std::endl;
+		std::cout << "Longest span: " << s.longestSpan() << std::endl;
+
+		int	arr2[] = {102, 34, 2};
+		std::vector<int> vec2(arr2, arr2 + sizeof(arr2) / sizeof(arr2[0]));
+
+		s.addNumber(vec2.begin(), vec2.end());		
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
+
 	try
 	{
-		Span s(10000);
-		std::srand(std::time(NULL));
-    	for (int i = 0; i < 10000; i++)
-			s.addNumber(std::rand());
+		Span	s(3);
+		s.addNumber(42);
+		s.addNumber(60);
+		s.addNumber(5);
+		s.addNumber(98);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 
-		std::cout << "Shortest span: " << s.shortestSpan() << std::endl;
-		std::cout << "Longest span: " << s.longestSpan() << std::endl;
-
-		s.addNumber(10001);
-	 }
-	 catch(const std::exception& e)
-	 {
-		std::cerr << e.what() << std::endl;
-	 }
-	 try
-	 {
-		Span s(2);
-		std::cout << "Shortest span: " << s.shortestSpan() << std::endl;
-	 }
-	 catch(const std::exception& e)
-	 {
-		std::cerr << e.what() << std::endl;
-	 }
-	 try
-	 {
-		Span s(2);
-		std::cout << "Longest span: " << s.longestSpan() << std::endl;
-	 }
-	 catch(const std::exception& e)
-	 {
-		std::cerr << e.what() << std::endl;
-	 }
 	return (0);
 }
