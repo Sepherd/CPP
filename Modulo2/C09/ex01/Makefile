@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: arecce <arecce@student.42.fr>              +#+  +:+       +#+         #
+#    By: sepherd <sepherd@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/13 16:15:00 by arecce            #+#    #+#              #
-#    Updated: 2024/06/27 18:44:59 by arecce           ###   ########.fr        #
+#    Updated: 2024/06/27 22:51:34 by sepherd          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,13 +31,12 @@ OBJ = $(SRC:.cpp=.o)
 all: $(NAME)
 
 %.o: %.cpp
-		@echo "\033[1;34mCompiling $<...\033[1;0m"
 		@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
-		@echo "\033[1;34mCompiling EX1...\033[1;0m"
+		@echo "\033[1;34mCompiling EX01...\033[1;0m"
 		@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-		@echo "\033[1;32mEX1 build completed.\033[1;0m"
+		@echo "\033[1;32mEX01 build completed.\033[1;0m"
 
 clean:
 		@echo "\033[1;33mCleaning...\033[1;0m"

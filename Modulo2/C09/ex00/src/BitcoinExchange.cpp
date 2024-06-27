@@ -10,23 +10,23 @@ BitcoinExchange::BitcoinExchange(std::string file, std::string db) : _file(file)
 	std::ifstream data(_file.c_str());
 	if (!data)
 	{
-		std::cerr << "Could not open file." << std::endl;
+		std::cerr << "Error: could not open file." << std::endl;
 		return ;
 	}
 	std::ifstream database(db.c_str());
 	if (!database)
 	{
-		std::cerr << "Could not open database." << std::endl;
+		std::cerr << "Error: could not open file." << std::endl;
 		return ;
 	}
 
 	std::string	line;
 	std::getline(database, line);
-	char *end;
 	while (std::getline(database, line))
 	{
 		size_t		pos = line.find(',');
 		std::string	date = line.substr(0, pos);
+		char 		*end;
 		float		rate = std::strtof(line.substr(pos + 1).c_str(), &end);
 		_btcRate[date] = rate;
 	}
@@ -97,11 +97,11 @@ void	BitcoinExchange::exchange()
 			continue ;
 		}
 
-		std::map<std::string, float>::iterator it = _btcRate.lower_bound(date);
+		std::map<std::string, float>::iterator it = _btcRate.lower_bound(date);  // Ritorna un iteratore al primo elemento maggiore o uguale al valore
 
-        if (it == _btcRate.end() || (it != _btcRate.begin() && it->first != date))
+        if (it == _btcRate.end() || (it != _btcRate.begin() && it->first != date)) // Se non trova date prende il valore prima (it->first indica la chiave)
 			--it;
-		float	rate = it->second;
+		float	rate = it->second; //Indica il valore associato alla chiave
 		float	total = value * rate;
 		std::cout << date << " => " << value << " = " << total << std::endl;
 	}

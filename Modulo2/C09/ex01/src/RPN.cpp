@@ -25,7 +25,7 @@ RPN &RPN::operator=(const RPN &other)
 
 void	ft_error()
 {
-	std::cerr << "Error" << std::endl;
+	std::cout << "Error" << std::endl;
 	exit(0);
 }
 
